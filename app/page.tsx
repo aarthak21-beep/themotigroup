@@ -117,146 +117,302 @@ export default function Home() {
   </div>
 </section>
       {/* ABOUT */}
-      <section id="about" className="bg-zinc-950 text-white">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-28 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
-              About us
-            </p>
+      <section id="about" className="bg-gray-50 px-6 py-24 sm:px-10 sm:py-32">
+  <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
 
-            <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
-              Built around
-              <br />
-              ideas that matter.
-            </h2>
-          </div>
+    <div>
+      <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-600">
+        About the group
+      </p>
 
-          <div className="text-lg leading-8 text-zinc-400">
-            <p>
-              the moti group is an umbrella platform bringing together
-              different businesses, digital initiatives and content
-              verticals.
-            </p>
+      <h2 className="mt-4 text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl">
+        Built around
+        <br />
+        ideas that matter.
+      </h2>
+    </div>
 
-            <p className="mt-6">
-              Our approach is simple: create useful platforms, build
-              trusted experiences and explore opportunities across
-              industries.
-            </p>
+    <div>
+      <p className="text-lg leading-8 text-gray-600">
+        the moti group is an evolving digital ecosystem bringing
+        together ventures, content and services across different
+        areas of everyday life.
+      </p>
 
-            <p className="mt-6">
-              Each venture has its own purpose while remaining connected
-              to a larger ecosystem.
-            </p>
-          </div>
-        </div>
-      </section>
+      <p className="mt-6 text-lg leading-8 text-gray-600">
+        From healthcare and technology to finance, deals and
+        useful information, our goal is simple — create things
+        that people can discover, use and trust.
+      </p>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <span className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700">
+          Healthcare
+        </span>
+
+        <span className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700">
+          Technology
+        </span>
+
+        <span className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700">
+          Finance
+        </span>
+
+        <span className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700">
+          Digital
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section className="bg-black px-6 py-20 text-white sm:px-10">
+  <div className="mx-auto max-w-6xl">
+    <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+
+      <div>
+        <p className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          01
+        </p>
+        <p className="mt-3 text-sm text-gray-400">
+          Growing ecosystem
+        </p>
+      </div>
+
+      <div>
+        <p className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          05
+        </p>
+        <p className="mt-3 text-sm text-gray-400">
+          Venture areas
+        </p>
+      </div>
+
+      <div>
+        <p className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          01
+        </p>
+        <p className="mt-3 text-sm text-gray-400">
+          Group vision
+        </p>
+      </div>
+
+      <div>
+        <p className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          ∞
+        </p>
+        <p className="mt-3 text-sm text-gray-400">
+          Possibilities ahead
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* VENTURES */}
-      <section id="ventures" className="mx-auto max-w-7xl px-6 py-28">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-600">
-            Our ventures
-          </p>
+      <section id="ventures" className="bg-white px-6 py-24 sm:px-10 sm:py-32">
+  <div className="mx-auto max-w-6xl">
+    <div className="max-w-2xl">
+      <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-600">
+        Our Ventures
+      </p>
 
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-            Different verticals.
-            <br />
-            One ecosystem.
-          </h2>
+      <h2 className="mt-4 text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl">
+        Different ideas.
+        <br />
+        One ecosystem.
+      </h2>
 
-          <p className="mt-6 text-lg leading-8 text-zinc-600">
-            Explore the platforms and ideas that form the growing
-            the moti group ecosystem.
-          </p>
+      <p className="mt-6 text-lg leading-8 text-gray-600">
+        A growing collection of ventures built around useful ideas,
+        digital experiences and everyday needs.
+      </p>
+    </div>
+
+    <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+      <a
+        href="https://diagnostics.themotigroup.co.in/"
+        className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-200 hover:bg-white hover:shadow-xl"
+      >
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
+          M
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {ventures.map((venture, index) => (
-            <a
-              key={venture.title}
-              href={venture.href}
-              target={venture.href.startsWith("http") ? "_blank" : undefined}
-              rel={
-                venture.href.startsWith("http")
-                  ? "noreferrer"
-                  : undefined
-              }
-              className={`group rounded-3xl border p-8 transition duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                index === 0
-                  ? "border-cyan-200 bg-cyan-50"
-                  : "border-zinc-200 bg-white"
-              }`}
-            >
-              <div className="flex items-start justify-between">
-                <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-zinc-600 shadow-sm">
-                  {venture.category}
-                </span>
+        <h3 className="mt-8 text-2xl font-semibold text-gray-950">
+          MOTI Diagnostics
+        </h3>
 
-                <span className="text-xl text-zinc-400 group-hover:text-black">
-                  ↗
-                </span>
-              </div>
+        <p className="mt-3 leading-7 text-gray-600">
+          Diagnostic healthcare services focused on accessible and
+          reliable testing.
+        </p>
 
-              <h3 className="mt-20 text-2xl font-semibold">
-                {venture.title}
-              </h3>
+        <span className="mt-6 inline-block text-sm font-semibold text-gray-950">
+          Visit website →
+        </span>
+      </a>
 
-              <p className="mt-3 leading-7 text-zinc-600">
-                {venture.description}
-              </p>
-
-              <p className="mt-8 text-sm font-semibold">
-                Explore venture →
-              </p>
-            </a>
-          ))}
+      <div className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-lg font-bold text-cyan-700">
+          H
         </div>
-      </section>
 
+        <h3 className="mt-8 text-2xl font-semibold text-gray-950">
+          Health
+        </h3>
+
+        <p className="mt-3 leading-7 text-gray-600">
+          Practical health information, wellness ideas and useful
+          everyday knowledge.
+        </p>
+
+        <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
+          Coming soon
+        </span>
+      </div>
+
+      <div className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-lg font-bold text-blue-700">
+          T
+        </div>
+
+        <h3 className="mt-8 text-2xl font-semibold text-gray-950">
+          TechLab
+        </h3>
+
+        <p className="mt-3 leading-7 text-gray-600">
+          Technology, digital tools, ideas and content for the
+          connected world.
+        </p>
+
+        <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
+          Coming soon
+        </span>
+      </div>
+
+      <div className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-lg font-bold text-amber-700">
+          D
+        </div>
+
+        <h3 className="mt-8 text-2xl font-semibold text-gray-950">
+          Dealz
+        </h3>
+
+        <p className="mt-3 leading-7 text-gray-600">
+          Deals, offers and useful discoveries brought together
+          in one place.
+        </p>
+
+        <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
+          Coming soon
+        </span>
+      </div>
+
+      <div className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-lg font-bold text-emerald-700">
+          F
+        </div>
+
+        <h3 className="mt-8 text-2xl font-semibold text-gray-950">
+          Finance
+        </h3>
+
+        <p className="mt-3 leading-7 text-gray-600">
+          Finance-focused information, insights and practical
+          knowledge.
+        </p>
+
+        <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
+          Coming soon
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
       {/* INSIGHTS */}
-      <section id="insights" className="border-y border-zinc-200 bg-zinc-50">
-        <div className="mx-auto max-w-7xl px-6 py-28">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-600">
+      <section id="insights" className="bg-white px-6 py-24 sm:px-10 sm:py-32">
+        <div className="mx-auto max-w-6xl">
+
+          <div className="max-w-2xl">
+            <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-600">
               Insights
             </p>
 
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-              Ideas, information
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl">
+              Ideas worth
               <br />
-              & useful discoveries.
+              exploring.
             </h2>
 
-            <p className="mt-6 text-lg leading-8 text-zinc-600">
-              Explore content across health, technology, finance and
-              deals — created to be useful, simple and accessible.
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Useful information, ideas and perspectives across the
+              different areas of the moti group.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-4 md:grid-cols-2">
-            {[
-              ["01", "Health", "Health, wellness and lifestyle information."],
-              ["02", "Technology", "Technology, digital trends and useful tools."],
-              ["03", "Finance", "Financial knowledge explained simply."],
-              ["04", "Deals", "Offers, savings and value-focused discoveries."],
-            ].map(([number, title, text]) => (
-              <div
-                key={number}
-                className="flex gap-6 rounded-3xl border border-zinc-200 bg-white p-7 hover:border-zinc-400"
-              >
-                <span className="text-sm font-semibold text-cyan-600">
-                  {number}
-                </span>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
-                <div>
-                  <h3 className="text-xl font-semibold">{title}</h3>
-                  <p className="mt-2 leading-7 text-zinc-500">
-                    {text}
-                  </p>
-                </div>
-              </div>
-            ))}
+            <div className="rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+              <p className="text-sm font-medium text-cyan-600">
+                HEALTH
+              </p>
+
+              <h3 className="mt-4 text-2xl font-semibold text-gray-950">
+                Health & Wellness
+              </h3>
+
+              <p className="mt-3 leading-7 text-gray-600">
+                Practical health information, wellness ideas and
+                everyday knowledge.
+              </p>
+
+              <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
+                Coming soon →
+              </span>
+            </div>
+
+            <div className="rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+              <p className="text-sm font-medium text-blue-600">
+                TECHLAB
+              </p>
+
+              <h3 className="mt-4 text-2xl font-semibold text-gray-950">
+                Technology
+              </h3>
+
+              <p className="mt-3 leading-7 text-gray-600">
+                Technology, digital tools, trends and useful ideas
+                for the connected world.
+              </p>
+
+              <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
+                Coming soon →
+              </span>
+            </div>
+
+            <div className="rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+              <p className="text-sm font-medium text-emerald-600">
+                FINANCE
+              </p>
+
+              <h3 className="mt-4 text-2xl font-semibold text-gray-950">
+                Finance & Money
+              </h3>
+
+              <p className="mt-3 leading-7 text-gray-600">
+                Finance-focused information, practical knowledge and
+                useful insights.
+              </p>
+
+              <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
+                Coming soon →
+              </span>
+            </div>
+
           </div>
         </div>
       </section>
