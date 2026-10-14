@@ -404,7 +404,7 @@ export default function Home() {
         </span>
       </div>
 
-      <div className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+      <a href="https://dealz.themotigroup.co.in/" target="_blank" rel="noreferrer" className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-lg font-bold text-amber-700">
           D
         </div>
@@ -419,9 +419,9 @@ export default function Home() {
         </p>
 
         <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
-          Coming soon
+          Explore Dealz →
         </span>
-      </div>
+      </a>
 
       <div className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-lg font-bold text-emerald-700">
