@@ -353,7 +353,7 @@ export default function Home() {
         </div>
 
         <h3 className="mt-8 text-2xl font-semibold text-gray-950">
-          MOTI Diagnostics
+          MOTI Diagnostics Centre
         </h3>
 
         <p className="mt-3 leading-7 text-gray-600">
