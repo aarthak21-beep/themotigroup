@@ -440,7 +440,7 @@ export default function Home() {
         <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
           Explore Finance →
         </span>
-      </div>
+      </a>
 
     </div>
   </div>
