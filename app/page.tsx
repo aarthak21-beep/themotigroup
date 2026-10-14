@@ -13,7 +13,7 @@ const ventures = [
     category: "Wellness",
     description:
       "Useful health information, wellness resources and everyday guidance.",
-    href: "#",
+    href: "https://health.themotigroup.co.in/",
   },
   {
     title: "TechLab",
@@ -366,7 +366,7 @@ export default function Home() {
         </span>
       </a>
 
-      <div className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
+      <a href="https://health.themotigroup.co.in/" target="_blank" rel="noreferrer" className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100 text-lg font-bold text-cyan-700">
           H
         </div>
@@ -381,9 +381,9 @@ export default function Home() {
         </p>
 
         <span className="mt-6 inline-block text-sm font-semibold text-gray-400">
-          Coming soon
+          Explore Health →
         </span>
-      </div>
+      </a>
 
       <a href="https://techlab.themotigroup.co.in/" target="_blank" rel="noreferrer" className="group rounded-3xl border border-gray-200 bg-gray-50 p-7 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-lg font-bold text-blue-700">
