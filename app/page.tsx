@@ -27,7 +27,7 @@ const ventures = [
     category: "Deals & Offers",
     description:
       "Discover useful deals, offers and value-focused opportunities.",
-    href: "#",
+    href: "https://dealz.themotigroup.co.in/",
   },
   {
     title: "Finance",
