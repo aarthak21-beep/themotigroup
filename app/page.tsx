@@ -611,43 +611,60 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-slate-950 text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
-          <div>
-            <div className="text-xl font-black">THE MOTI GROUP</div>
-            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-400">
-              {t.footerText}
-            </p>
-          </div>
+      <footer className="relative overflow-hidden bg-slate-950 text-white">
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-28 left-1/4 h-64 w-64 rounded-full bg-amber-400/10 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-4 pb-8 pt-14 sm:px-6 lg:px-8">
+          <div className="mb-10 grid gap-10 border-b border-white/10 pb-10 md:grid-cols-[1.35fr_1fr_1fr_1.2fr]">
+            <div>
+              <a href="#home" className="inline-flex items-center gap-3 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400 to-orange-700 text-xl font-black shadow-lg shadow-orange-950/40">M</span>
+                <span>
+                  <span className="block text-lg font-black tracking-wide">THE MOTI GROUP</span>
+                  <span className="mt-0.5 block text-[10px] font-bold uppercase tracking-[0.24em] text-orange-300">Ideas into impact</span>
+                </span>
+              </a>
+              <p className="mt-5 max-w-sm text-sm leading-7 text-slate-400">{t.footerText}</p>
+              <a href="https://wa.me/918692823879" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-4 py-2.5 text-sm font-bold text-green-300 transition hover:-translate-y-0.5 hover:border-green-300/60 hover:bg-green-400/15">
+                <span aria-hidden="true">◉</span> {t.whatsapp} <span aria-hidden="true">↗</span>
+              </a>
+            </div>
 
-          <div>
-            <h3 className="font-bold">{t.quickLinks}</h3>
-            <div className="mt-4 flex flex-col items-start gap-3 text-sm text-slate-400">
-              <a href="#home" className="hover:text-white">{t.home}</a>
-              <a href="#ventures" className="hover:text-white">{t.ourVentures}</a>
-              <a href="#about" className="hover:text-white">{t.aboutNav}</a>
-              <a href="#contact" className="hover:text-white">{t.contactNav}</a>
+            <div>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-orange-300">{t.quickLinks}</h3>
+              <div className="mt-5 flex flex-col items-start gap-3.5 text-sm text-slate-400">
+                <a href="#home" className="transition hover:translate-x-1 hover:text-white">{t.home}</a>
+                <a href="#ventures" className="transition hover:translate-x-1 hover:text-white">{t.ourVentures}</a>
+                <a href="#trending" className="transition hover:translate-x-1 hover:text-white">{t.latest}</a>
+                <a href="#about" className="transition hover:translate-x-1 hover:text-white">{t.aboutNav}</a>
+                <a href="#contact" className="transition hover:translate-x-1 hover:text-white">{t.contactNav}</a>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-orange-300">{t.ourVentures}</h3>
+              <div className="mt-5 flex flex-col items-start gap-3.5 text-sm text-slate-400">
+                <a href="https://diagnostics.themotigroup.co.in/" target="_blank" rel="noreferrer" className="transition hover:translate-x-1 hover:text-white">Health & Care <span className="text-slate-600">↗</span></a>
+                <a href="https://techlab.themotigroup.co.in/" target="_blank" rel="noreferrer" className="transition hover:translate-x-1 hover:text-white">Technology <span className="text-slate-600">↗</span></a>
+                <a href="https://financial.themotigroup.co.in/" target="_blank" rel="noreferrer" className="transition hover:translate-x-1 hover:text-white">Finance <span className="text-slate-600">↗</span></a>
+                <a href="https://dealz.themotigroup.co.in/" target="_blank" rel="noreferrer" className="transition hover:translate-x-1 hover:text-white">Deals & Offers <span className="text-slate-600">↗</span></a>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-orange-300">{t.connect}</h3>
+              <p className="mt-5 text-sm leading-6 text-slate-400">Have a question or want to work with us? We’d love to hear from you.</p>
+              <a href="mailto:info@themotigroup.co.in" className="mt-4 block break-all text-sm font-semibold text-white transition hover:text-orange-300">info@themotigroup.co.in</a>
+              <a href="http://billing.themotigroup.co.in/" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white/5 px-4 py-3 text-sm font-bold text-slate-200 ring-1 ring-white/10 transition hover:bg-white/10 hover:ring-orange-400/40">
+                Moti Technologies — {t.softwareLogin} <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
 
-          <div>
-            <h3 className="font-bold">{t.connect}</h3>
-            <div className="mt-4 flex flex-col items-start gap-3 text-sm text-slate-400">
-              <a href="mailto:info@themotigroup.co.in" className="hover:text-white">
-                info@themotigroup.co.in
-              </a>
-              <a href="https://wa.me/918692823879" className="hover:text-white">
-                WhatsApp
-              </a>
-              <a href="http://billing.themotigroup.co.in/" className="hover:text-white">
-                Moti Technologies — {t.softwareLogin}
-              </a>
-            </div>
+          <div className="flex flex-col gap-4 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} The Moti Group. {t.rights}</p>
+            <a href="#home" className="inline-flex items-center gap-2 font-semibold text-slate-400 transition hover:text-orange-300">Back to top <span aria-hidden="true">↑</span></a>
           </div>
-        </div>
-
-        <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-slate-500">
-          © {new Date().getFullYear()} The Moti Group. {t.rights}
         </div>
       </footer>
 
