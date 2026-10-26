@@ -17,7 +17,7 @@ function decodeXml(value: string) {
 }
 
 function tag(item: string, name: string) {
-  const match = item.match(new RegExp("<" + name + "(?:\\s[^>]*)?>([\\s\\S]*?)</" + name + ">", "i"));
+  const match = item.match(new RegExp("<" + name + "(?:\s[^>]*)?>([\s\S]*?)</" + name + ">", "i"));
   return match ? decodeXml(match[1]).trim() : "";
 }
 
@@ -36,16 +36,16 @@ export async function GET() {
     });
     if (!response.ok) throw new Error("Feed request failed");
     const xml = await response.text();
-    return [...xml.matchAll(/<item(?:\\s[^>]*)?>([\\s\\S]*?)<\\/item>/gi)].map((match) => {
+    return [...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi)].map((match) => {
       const item = match[1];
       const title = tag(item, "title").replace(/<[^>]*>/g, "").trim();
       const link = safeUrl(tag(item, "link"));
       const rawDescription = tag(item, "description") || tag(item, "content:encoded");
       const imageMatch = rawDescription.match(/<img[^>]+src=["']([^"']+)["']/i);
       const image = imageMatch ? safeUrl(decodeXml(imageMatch[1])) : null;
-      const description = rawDescription.replace(/<script[\\s\\S]*?<\\/script>/gi, " ")
-        .replace(/<style[\\s\\S]*?<\\/style>/gi, " ")
-        .replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim().slice(0, 220);
+      const description = rawDescription.replace(/<script[\s\S]*?<\/script>/gi, " ")
+        .replace(/<style[\s\S]*?<\/style>/gi, " ")
+        .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 220);
       return { title, link, source: feed.name, date: tag(item, "pubDate"), description, image };
     }).filter((post) => post.title && post.link);
   }));
