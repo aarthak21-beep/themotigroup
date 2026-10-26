@@ -50,12 +50,16 @@ export async function GET() {
     }).filter((post) => post.title && post.link);
   }));
   const posts = results.flatMap((result) => result.status === "fulfilled" ? result.value : []);
-  posts.sort((a, b) => {
-    const dateA = Date.parse(a.date) || 0;
-    const dateB = Date.parse(b.date) || 0;
-    return dateB - dateA;
-  });
-  return Response.json(posts.slice(0, 12), {
+  const grouped = FEEDS.map((feed) =>
+    posts
+      .filter((post) => post.source === feed.name)
+      .sort((a, b) => (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0))
+      .slice(0, 3)
+  );
+  const mixedPosts = Array.from({ length: 3 }, (_, index) =>
+    grouped.flatMap((group) => group[index] ? [group[index]] : [])
+  ).flat();
+  return Response.json(mixedPosts, {
     headers: { "Cache-Control": "public, s-maxage=900, stale-while-revalidate=3600" },
   });
 }
