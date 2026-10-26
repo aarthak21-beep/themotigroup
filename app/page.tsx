@@ -348,43 +348,27 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <div className="relative min-h-48 overflow-hidden rounded-2xl border border-white/10 sm:min-h-60">
-              <img
-                src={ventures[0].image}
-                alt="Healthcare"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+            <a href="https://diagnostics.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/10 sm:min-h-52" aria-label="Health & Care - Moti Diagnostics">
+              <img src={ventures[0].image} alt="Health & Care" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
-              <div className="absolute bottom-4 left-4 font-bold">Health & Care</div>
-            </div>
-            <div className="relative mt-8 min-h-48 overflow-hidden rounded-2xl border border-white/10 sm:min-h-60">
-              <img
-                src={ventures[2].image}
-                alt="Technology"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
+              <div className="absolute bottom-4 left-4 font-bold text-white">Health & Care</div>
+            </a>
+            <a href="https://techlab.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/10 sm:min-h-52" aria-label="Technology - Moti TechLab">
+              <img src={ventures[2].image} alt="Technology" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
-              <div className="absolute bottom-4 left-4 font-bold">Technology</div>
-            </div>
-            <div className="relative min-h-36 overflow-hidden rounded-2xl border border-white/10">
-              <img
-                src={ventures[3].image}
-                alt="Finance"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent" />
-              <div className="absolute bottom-4 left-4 font-bold">Finance</div>
-            </div>
-            <div className="relative mt-4 min-h-36 overflow-hidden rounded-2xl border border-white/10">
-              <img
-                src={ventures[4].image}
-                alt="Shopping deals"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent" />
-              <div className="absolute bottom-4 left-4 font-bold">Deals & Offers</div>
-            </div>
+              <div className="absolute bottom-4 left-4 font-bold text-white">Technology</div>
+            </a>
+            <a href="https://financial.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/10 sm:min-h-52" aria-label="Finance - Moti Finance">
+              <img src={ventures[3].image} alt="Finance" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
+              <div className="absolute bottom-4 left-4 font-bold text-white">Finance</div>
+            </a>
+            <a href="https://dealz.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/10 sm:min-h-52" aria-label="Deals & Offers - Moti Dealz">
+              <img src={ventures[4].image} alt="Deals & Offers" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
+              <div className="absolute bottom-4 left-4 font-bold text-white">Deals & Offers</div>
+            </a>
           </div>
         </div>
       </section>
