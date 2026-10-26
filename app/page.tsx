@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import { useState } from "react";
 
 const ventures = [
   {
@@ -92,6 +93,67 @@ const trending = [
     time: "Shopping",
   },
 ];
+
+const translations = {
+  en: {
+    nav: ["About", "Ventures", "Insights", "Contact"],
+    explore: "Explore ventures",
+    eyebrow: "A connected ecosystem",
+    hero: "One group.",
+    hero2: "Multiple possibilities.",
+    heroText:
+      "Meaningful digital experiences across healthcare, technology, finance and everyday discoveries.",
+    aboutLabel: "ABOUT THE MOTI GROUP",
+    aboutTitle: "Ideas that make everyday life better.",
+    aboutText:
+      "The Moti Group brings together a growing ecosystem of digital ventures and services built around everyday needs.",
+    aboutText2:
+      "From healthcare and technology to finance and useful deals, our goal is to make trusted information and helpful services easier to discover.",
+    ventureLabel: "EXPLORE OUR ECOSYSTEM",
+    ventureTitle: "Different ventures. One vision.",
+    ventureText:
+      "Discover the specialist platforms that make up The Moti Group.",
+    visit: "Visit website",
+    insightLabel: "DISCOVER MORE",
+    insightTitle: "Useful ideas for everyday decisions.",
+    contactLabel: "LET'S CONNECT",
+    contactTitle: "Have an idea? Let's talk.",
+    contactText:
+      "For questions, partnerships or new opportunities, we'd love to hear from you.",
+    email: "Email us",
+    whatsapp: "WhatsApp us",
+    footer: "One group. Multiple possibilities.",
+  },
+  mr: {
+    nav: ["आमच्याबद्दल", "उपक्रम", "माहिती", "संपर्क"],
+    explore: "उपक्रम पहा",
+    eyebrow: "एक जोडलेले व्यासपीठ",
+    hero: "एक समूह.",
+    hero2: "अनेक शक्यता.",
+    heroText:
+      "आरोग्य, तंत्रज्ञान, आर्थिक माहिती आणि दैनंदिन गरजांसाठी उपयुक्त डिजिटल अनुभव.",
+    aboutLabel: "मोटी ग्रुपबद्दल",
+    aboutTitle: "दैनंदिन जीवनासाठी उपयुक्त कल्पना.",
+    aboutText:
+      "मोटी ग्रुप विविध डिजिटल उपक्रम आणि सेवांना एका व्यासपीठावर आणतो.",
+    aboutText2:
+      "आरोग्यसेवा, तंत्रज्ञान, आर्थिक माहिती आणि उपयुक्त ऑफर्स सहज उपलब्ध करून देणे हे आमचे ध्येय आहे.",
+    ventureLabel: "आमचे उपक्रम",
+    ventureTitle: "वेगवेगळे उपक्रम. एकच दृष्टीकोन.",
+    ventureText:
+      "मोटी ग्रुपमधील विविध डिजिटल प्लॅटफॉर्मची ओळख करून घ्या.",
+    visit: "वेबसाइट पहा",
+    insightLabel: "अधिक जाणून घ्या",
+    insightTitle: "दैनंदिन निर्णयांसाठी उपयुक्त माहिती.",
+    contactLabel: "चला, जोडले जाऊया",
+    contactTitle: "नवीन कल्पना? चला बोलूया.",
+    contactText:
+      "प्रश्न, भागीदारी किंवा नवीन संधींसाठी आमच्याशी संपर्क साधा.",
+    email: "ईमेल करा",
+    whatsapp: "WhatsApp वर संपर्क",
+    footer: "एक समूह. अनेक शक्यता.",
+  },
+};
 
 export default function Home() {
   return (
