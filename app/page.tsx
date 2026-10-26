@@ -7,6 +7,27 @@ type Lang = "en" | "mr";
 
 type BlogPost = { title: string; link: string; source: string; date: string; description: string; image: string | null };
 
+const blogSourceStyles: Record<string, { label: string; labelMr: string; badge: string; fallback: string }> = {
+  health: { label: "Moti Health", labelMr: "मोटी हेल्थ", badge: "bg-emerald-50 text-emerald-700 ring-emerald-600/15", fallback: "from-emerald-500/20 via-teal-500/10 to-slate-950" },
+  techlab: { label: "Moti TechLab", labelMr: "मोटी टेकलॅब", badge: "bg-sky-50 text-sky-700 ring-sky-600/15", fallback: "from-sky-500/20 via-indigo-500/10 to-slate-950" },
+  finance: { label: "Moti Financial", labelMr: "मोटी फायनान्शियल", badge: "bg-violet-50 text-violet-700 ring-violet-600/15", fallback: "from-violet-500/20 via-fuchsia-500/10 to-slate-950" },
+  dealz: { label: "Moti Dealz", labelMr: "मोटी डील्झ", badge: "bg-orange-50 text-orange-700 ring-orange-600/15", fallback: "from-orange-500/20 via-amber-500/10 to-slate-950" },
+};
+
+function getBlogSourceStyle(source: string) {
+  const normalized = source.toLowerCase();
+  if (normalized.includes("health")) return blogSourceStyles.health;
+  if (normalized.includes("tech")) return blogSourceStyles.techlab;
+  if (normalized.includes("financ")) return blogSourceStyles.finance;
+  if (normalized.includes("deal")) return blogSourceStyles.dealz;
+  return {
+    label: source || "The Moti Group",
+    labelMr: source || "The Moti Group",
+    badge: "bg-slate-100 text-slate-700 ring-slate-500/15",
+    fallback: "from-orange-500/20 via-amber-500/10 to-slate-950",
+  };
+}
+
 const ventures = [
   {
     id: "diagnostics",
@@ -437,40 +458,91 @@ export default function Home() {
       </section>
 
 
-      <section id="blogs" className="relative border-y border-slate-200 bg-gradient-to-b from-white to-orange-50/40 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">THE MOTI GROUP</div>
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">{t.blogsTitle}</h2>
-            <p className="mt-2 text-slate-500">{t.blogsSub}</p>
+      <section id="blogs" className="relative overflow-hidden border-y border-slate-200 bg-gradient-to-b from-white via-white to-orange-50/70 py-16 sm:py-20">
+        <div className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-orange-200/30 blur-3xl" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-9 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.18em] text-orange-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-orange-500" aria-hidden="true" />
+                THE MOTI GROUP
+              </div>
+              <h2 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">{t.blogsTitle}</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">{t.blogsSub}</p>
+            </div>
+            <div className="hidden rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-semibold text-slate-500 shadow-sm sm:block">
+              <span className="text-slate-900">{blogPosts.length || "—"}</span> {language === "mr" ? "ताज्या पोस्ट" : "fresh posts"}
+            </div>
           </div>
           {blogsLoading ? (
-            <p role="status" aria-live="polite" className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">{t.loadingBlogs}</p>
+            <div role="status" aria-live="polite" className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {[0, 1, 2].map((item) => (
+                <div key={item} className="overflow-hidden rounded-3xl border border-slate-200 bg-white" aria-hidden="true">
+                  <div className="h-48 animate-pulse bg-slate-100 sm:h-52" />
+                  <div className="space-y-3 p-5">
+                    <div className="h-5 w-28 animate-pulse rounded-full bg-slate-100" />
+                    <div className="h-6 w-5/6 animate-pulse rounded bg-slate-100" />
+                    <div className="h-4 w-full animate-pulse rounded bg-slate-100" />
+                    <div className="h-4 w-2/3 animate-pulse rounded bg-slate-100" />
+                  </div>
+                </div>
+              ))}
+              <span className="sr-only">{t.loadingBlogs}</span>
+            </div>
           ) : blogPosts.length === 0 ? (
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">
-              <p>{t.noBlogs}</p>
-              <div className="mt-4 flex flex-wrap gap-3 text-sm font-bold">
-                <a className="text-orange-600 hover:underline" href="https://health.themotigroup.co.in/">Moti Health ↗</a>
-                <a className="text-orange-600 hover:underline" href="https://techlab.themotigroup.co.in/">Moti TechLab ↗</a>
-                <a className="text-orange-600 hover:underline" href="https://financial.themotigroup.co.in/">Moti Financial ↗</a>
-                <a className="text-orange-600 hover:underline" href="https://dealz.themotigroup.co.in/">Moti Dealz ↗</a>
+            <div className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm sm:p-8">
+              <p className="text-slate-600">{t.noBlogs}</p>
+              <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold">
+                <a className="rounded-full bg-emerald-50 px-4 py-2.5 text-emerald-700 transition hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" href="https://health.themotigroup.co.in/">Moti Health ↗</a>
+                <a className="rounded-full bg-sky-50 px-4 py-2.5 text-sky-700 transition hover:bg-sky-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" href="https://techlab.themotigroup.co.in/">Moti TechLab ↗</a>
+                <a className="rounded-full bg-violet-50 px-4 py-2.5 text-violet-700 transition hover:bg-violet-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" href="https://financial.themotigroup.co.in/">Moti Financial ↗</a>
+                <a className="rounded-full bg-orange-50 px-4 py-2.5 text-orange-700 transition hover:bg-orange-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" href="https://dealz.themotigroup.co.in/">Moti Dealz ↗</a>
               </div>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {blogPosts.map((post) => (
-                <article key={post.link} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                  <a href={post.link} target="_blank" rel="noreferrer" className="block">
-                    {post.image ? <img src={post.image} alt="" className="h-48 w-full object-cover" loading="lazy" /> : <div className="flex h-48 items-center justify-center bg-orange-50 text-4xl font-black text-orange-600">M</div>}
-                    <div className="p-5">
-                      <div className="text-xs font-bold uppercase tracking-wider text-orange-600">{post.source}{post.date ? ` · ${new Date(post.date).toLocaleDateString(language === "mr" ? "mr-IN" : "en-IN")}` : ""}</div>
-                      <h3 className="mt-3 text-xl font-extrabold leading-snug group-hover:text-orange-600">{post.title}</h3>
-                      {post.description ? <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-500">{post.description}</p> : null}
-                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-orange-600">{t.readMore} <span aria-hidden="true">→</span></span>
-                    </div>
-                  </a>
-                </article>
-              ))}
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6">
+              {blogPosts.map((post) => {
+                const sourceStyle = getBlogSourceStyle(post.source);
+                const dateLabel = post.date && !Number.isNaN(new Date(post.date).getTime())
+                  ? new Date(post.date).toLocaleDateString(language === "mr" ? "mr-IN" : "en-IN", { day: "numeric", month: "short", year: "numeric" })
+                  : null;
+                return (
+                  <article key={post.link} className="group flex min-w-0 flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_10px_35px_-22px_rgba(15,23,42,0.3)] transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-[0_24px_55px_-25px_rgba(234,88,12,0.35)]">
+                    <a href={post.link} target="_blank" rel="noopener noreferrer" className="flex h-full flex-col rounded-[inherit] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500">
+                      <div className={`relative h-48 shrink-0 overflow-hidden bg-gradient-to-br ${sourceStyle.fallback} sm:h-52`}>
+                        {post.image ? (
+                          <img
+                            src={post.image}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="flex h-full items-center justify-center bg-gradient-to-br from-white/10 to-transparent">
+                            <span className="flex h-20 w-20 items-center justify-center rounded-3xl border border-white/20 bg-white/10 text-4xl font-black text-white shadow-xl backdrop-blur-sm">M</span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/10" aria-hidden="true" />
+                        <span className={`absolute left-4 top-4 inline-flex max-w-[calc(100%-2rem)] items-center truncate rounded-full px-3 py-1.5 text-xs font-extrabold shadow-sm ring-1 ring-inset ${sourceStyle.badge}`}>
+                          {language === "mr" ? sourceStyle.labelMr : sourceStyle.label}
+                        </span>
+                        {dateLabel ? <span className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-slate-950/55 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">{dateLabel}</span> : null}
+                      </div>
+                      <div className="flex flex-1 flex-col p-5 sm:p-6">
+                        <h3 className="line-clamp-3 text-lg font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-orange-700 sm:text-xl">{post.title}</h3>
+                        {post.description ? <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600">{post.description}</p> : <p className="mt-3 text-sm leading-6 text-slate-500">{language === "mr" ? "नवीन लेख वाचण्यासाठी उघडा." : "Open this post to read the full article."}</p>}
+                        <div className="mt-auto flex items-center justify-between gap-3 pt-6">
+                          <span className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">{language === "mr" ? "नवीन लेख" : "LATEST ARTICLE"}</span>
+                          <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-xs font-bold text-white transition group-hover:bg-orange-600">
+                            {t.readMore} <span aria-hidden="true">↗</span>
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+                  </article>
+                );
+              })}
             </div>
           )}
         </div>
