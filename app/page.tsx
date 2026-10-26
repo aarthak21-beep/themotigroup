@@ -311,22 +311,24 @@ export default function Home() {
         </nav>
       </header>
 
-      <section id="home" className="relative overflow-hidden bg-slate-950 text-white">
+      <section id="home" className="relative isolate overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=90"
             alt=""
-            className="h-full w-full object-cover opacity-25"
+            className="h-full w-full object-cover opacity-30 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-900/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-900/35" />
+          <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-orange-500/15 blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-amber-400/10 blur-3xl" />
         </div>
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
           <div>
-            <div className="mb-5 inline-flex rounded-full border border-orange-400/40 bg-orange-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-300">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-white/[0.06] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-200 shadow-lg shadow-orange-950/20 backdrop-blur-md">
               {t.eyebrow}
             </div>
-            <h1 className="max-w-3xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-black leading-tight tracking-tight [text-wrap:balance] sm:text-5xl lg:text-6xl">
               {t.heroTitle}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
@@ -335,13 +337,13 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#ventures"
-                className="rounded-xl bg-orange-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/30 transition hover:bg-orange-500"
+                className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-700 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/40 transition duration-300 hover:-translate-y-0.5 hover:from-orange-400 hover:to-orange-600 hover:shadow-orange-500/20"
               >
                 {t.explore} <span aria-hidden="true">→</span>
               </a>
               <a
                 href="#trending"
-                className="rounded-xl border border-white/25 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10"
+                className="rounded-xl border border-white/20 bg-white/[0.04] px-6 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10"
               >
                 {t.latest}
               </a>
@@ -349,22 +351,22 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            <a href="https://diagnostics.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/10 sm:min-h-52" aria-label="Health & Care - Moti Diagnostics">
+            <a href="https://diagnostics.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-xl shadow-black/20 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:border-orange-300/50 hover:shadow-orange-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:min-h-52" aria-label="Health & Care - Moti Diagnostics">
               <img src={ventures[0].image} alt="Health & Care" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
               <div className="absolute bottom-4 left-4 font-bold text-white">Health & Care</div>
             </a>
-            <a href="https://techlab.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/10 sm:min-h-52" aria-label="Technology - Moti TechLab">
+            <a href="https://techlab.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-xl shadow-black/20 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:border-orange-300/50 hover:shadow-orange-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:min-h-52" aria-label="Technology - Moti TechLab">
               <img src={ventures[2].image} alt="Technology" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
               <div className="absolute bottom-4 left-4 font-bold text-white">Technology</div>
             </a>
-            <a href="https://financial.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/10 sm:min-h-52" aria-label="Finance - Moti Finance">
+            <a href="https://financial.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-xl shadow-black/20 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:border-orange-300/50 hover:shadow-orange-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:min-h-52" aria-label="Finance - Moti Finance">
               <img src={ventures[3].image} alt="Finance" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
               <div className="absolute bottom-4 left-4 font-bold text-white">Finance</div>
             </a>
-            <a href="https://dealz.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/10 sm:min-h-52" aria-label="Deals & Offers - Moti Dealz">
+            <a href="https://dealz.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-xl shadow-black/20 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:border-orange-300/50 hover:shadow-orange-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:min-h-52" aria-label="Deals & Offers - Moti Dealz">
               <img src={ventures[4].image} alt="Deals & Offers" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
               <div className="absolute bottom-4 left-4 font-bold text-white">Deals & Offers</div>
@@ -422,7 +424,7 @@ export default function Home() {
       </section>
 
 
-      <section id="blogs" className="border-y border-slate-200 bg-white py-16">
+      <section id="blogs" className="relative border-y border-slate-200 bg-gradient-to-b from-white to-orange-50/40 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">THE MOTI GROUP</div>
@@ -477,15 +479,15 @@ export default function Home() {
             {ventures.map((venture) => (
               <article
                 key={venture.id}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_8px_30px_-15px_rgba(15,23,42,0.18)] transition duration-300 hover:-translate-y-2 hover:border-orange-200 hover:shadow-[0_24px_55px_-20px_rgba(234,88,12,0.25)]"
               >
-                <a href={venture.href} className="relative block h-52 overflow-hidden">
+                <a href={venture.href} className="relative block h-56 overflow-hidden bg-slate-100">
                   <img
                     src={venture.image}
                     alt={venture.name}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/5 to-transparent transition duration-300 group-hover:from-slate-950/65" />
                   <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-slate-900">
                     {venture.tag[language]}
                   </span>
@@ -503,7 +505,7 @@ export default function Home() {
                     href={venture.href}
                     target={venture.id === "technologies" ? "_blank" : undefined}
                     rel={venture.id === "technologies" ? "noreferrer" : undefined}
-                    className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-bold text-white transition hover:bg-orange-600"
+                    className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-600/20"
                   >
                     {venture.id === "technologies"
                       ? t.softwareLogin
