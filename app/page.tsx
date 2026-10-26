@@ -1,572 +1,620 @@
-
 "use client";
 
 import Link from "next/link";
 import { useState } from "react";
 
+type Lang = "en" | "mr";
+
 const ventures = [
   {
-    name: "MOTI Diagnostics",
-    category: "Healthcare",
-    description: "Reliable diagnostic services for better-informed healthcare.",
+    id: "diagnostics",
+    name: "Moti Diagnostics",
+    category: { en: "Healthcare", mr: "आरोग्यसेवा" },
+    tag: { en: "Diagnostics & Lab", mr: "डायग्नोस्टिक्स आणि लॅब" },
+    description: {
+      en: "Reliable diagnostic services and health testing to help you make informed decisions.",
+      mr: "योग्य आरोग्य निर्णय घेण्यासाठी विश्वासार्ह तपासणी आणि डायग्नोस्टिक सेवा.",
+    },
     href: "https://diagnostics.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=85",
-    tag: "Healthcare",
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=85",
+    cta: { en: "Explore Diagnostics", mr: "डायग्नोस्टिक्स पाहा" },
   },
   {
-    name: "Health",
-    category: "Health & Wellness",
-    description: "Health articles, wellness tips and useful everyday guidance.",
+    id: "health",
+    name: "Moti Health",
+    category: { en: "Health & Wellness", mr: "आरोग्य आणि निरोगी जीवन" },
+    tag: { en: "Health Information", mr: "आरोग्यविषयक माहिती" },
+    description: {
+      en: "Understand health topics, wellness tips and medical information in simple language.",
+      mr: "आरोग्य, निरोगी जीवन आणि वैद्यकीय माहिती सोप्या भाषेत समजून घ्या.",
+    },
     href: "https://health.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=85",
-    tag: "Health",
+      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1000&q=85",
+    cta: { en: "Explore Health", mr: "आरोग्य विभाग पाहा" },
   },
   {
-    name: "TechLab",
-    category: "Technology",
-    description: "Technology news, digital tools and practical tech guides.",
+    id: "techlab",
+    name: "Moti TechLab",
+    category: { en: "Technology", mr: "तंत्रज्ञान" },
+    tag: { en: "Learn Technology", mr: "तंत्रज्ञान शिका" },
+    description: {
+      en: "Discover AI, UPI, apps, the internet and digital safety through easy explanations.",
+      mr: "AI, UPI, ॲप्स, इंटरनेट आणि डिजिटल सुरक्षितता सोप्या भाषेत समजून घ्या.",
+    },
     href: "https://techlab.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85",
-    tag: "Technology",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=85",
+    cta: { en: "Explore TechLab", mr: "टेकलॅब पाहा" },
   },
   {
-    name: "Finance",
-    category: "Money & Finance",
-    description: "Financial knowledge and useful insights for everyday decisions.",
+    id: "finance",
+    name: "Moti Finance",
+    category: { en: "Finance", mr: "वित्त" },
+    tag: { en: "Money & Finance", mr: "पैसे आणि आर्थिक माहिती" },
+    description: {
+      en: "Learn about budgeting, saving, financial awareness and money management.",
+      mr: "बजेट, बचत, आर्थिक साक्षरता आणि पैशांचे व्यवस्थापन शिका.",
+    },
     href: "https://financial.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85",
-    tag: "Finance",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85",
+    cta: { en: "Explore Finance", mr: "फायनान्स पाहा" },
   },
   {
-    name: "Dealz",
-    category: "Deals & Offers",
-    description: "Discover useful deals, offers and smart shopping opportunities.",
+    id: "dealz",
+    name: "Moti Dealz",
+    category: { en: "Deals & Shopping", mr: "ऑफर्स आणि खरेदी" },
+    tag: { en: "Deals & Offers", mr: "डील्स आणि ऑफर्स" },
+    description: {
+      en: "Discover shopping deals, useful products and offers worth checking out.",
+      mr: "खरेदीसाठी उपयुक्त उत्पादने, ऑफर्स आणि खास डील्स शोधा.",
+    },
     href: "https://dealz.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85",
-    tag: "Deals",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85",
+    cta: { en: "Explore Dealz", mr: "डील्स पाहा" },
+  },
+  {
+    id: "technologies",
+    name: "Moti Technologies",
+    category: { en: "Software & Solutions", mr: "सॉफ्टवेअर आणि सोल्यूशन्स" },
+    tag: { en: "Business Software", mr: "व्यवसायासाठी सॉफ्टवेअर" },
+    description: {
+      en: "Technology solutions for businesses, including our Newspaper Management Software.",
+      mr: "व्यवसायांसाठी तंत्रज्ञान उपाय, ज्यामध्ये आमच्या Newspaper Management Software चा समावेश आहे.",
+    },
+    href: "http://billing.themotigroup.co.in/",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85",
+    cta: { en: "Software Login", mr: "सॉफ्टवेअर लॉगिन" },
   },
 ];
 
-const featuredArticle = {
-  title: "Diabetes Test – Mira Road: Complete Guide",
-  description:
-    "Learn about diabetes testing, available tests, preparation and what to expect.",
-  href: "https://health.themotigroup.co.in/2026/07/diabetes-test-mira-road.html",
-  image:
-    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=90",
-};
-
 const trending = [
   {
-    category: "Health",
-    title: "Diabetes Test – Mira Road",
-    href: featuredArticle.href,
+    id: 1,
+    category: { en: "Health", mr: "आरोग्य" },
+    title: {
+      en: "Understanding Diabetes Tests: A Simple Guide",
+      mr: "डायबिटीज चाचण्या समजून घ्या: सोपे मार्गदर्शन",
+    },
+    description: {
+      en: "Learn what common diabetes tests measure and why they matter.",
+      mr: "डायबिटीजच्या सामान्य चाचण्या काय मोजतात आणि त्या का महत्त्वाच्या आहेत ते जाणून घ्या.",
+    },
+    href: "https://health.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=300&q=80",
-    time: "Health guide",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85",
   },
   {
-    category: "TechLab",
-    title: "Explore Technology & Digital Tools",
+    id: 2,
+    category: { en: "Technology", mr: "तंत्रज्ञान" },
+    title: {
+      en: "Artificial Intelligence Explained in Simple Words",
+      mr: "आर्टिफिशियल इंटेलिजन्स सोप्या भाषेत",
+    },
+    description: {
+      en: "Find out how AI works and where you may already be using it.",
+      mr: "AI कसे काम करते आणि तुम्ही ते कुठे वापरत आहात हे जाणून घ्या.",
+    },
     href: "https://techlab.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80",
-    time: "Technology",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=85",
   },
   {
-    category: "Finance",
-    title: "Discover Finance Insights",
+    id: 3,
+    category: { en: "Finance", mr: "वित्त" },
+    title: {
+      en: "Simple Money Habits for Everyday Life",
+      mr: "दैनंदिन जीवनातील पैशांच्या सोप्या सवयी",
+    },
+    description: {
+      en: "Small steps that can help you build better money habits.",
+      mr: "पैशांच्या चांगल्या सवयी लावण्यासाठी काही सोप्या गोष्टी.",
+    },
     href: "https://financial.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=80",
-    time: "Money",
-  },
-  {
-    category: "Dealz",
-    title: "Explore Deals & Offers",
-    href: "https://dealz.themotigroup.co.in/",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85",
-    time: "Shopping",
+      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=85",
   },
 ];
 
 const translations = {
   en: {
-    nav: ["About", "Ventures", "Insights", "Contact"],
-    explore: "Explore ventures",
-    eyebrow: "A connected ecosystem",
-    hero: "One group.",
-    hero2: "Multiple possibilities.",
+    home: "Home",
+    venturesNav: "Our Ventures",
+    aboutNav: "About Us",
+    contactNav: "Contact",
+    eyebrow: "ONE GROUP. MANY POSSIBILITIES.",
+    heroTitle: "Ideas, Information & Innovation for Everyday Life.",
     heroText:
-      "Meaningful digital experiences across healthcare, technology, finance and everyday discoveries.",
-    aboutLabel: "ABOUT THE MOTI GROUP",
-    aboutTitle: "Ideas that make everyday life better.",
+      "Explore health, technology, finance, deals and digital solutions—all from The Moti Group.",
+    explore: "Explore Our Ventures",
+    latest: "Discover More",
+    trending: "Trending Now",
+    trendingSub: "Stories and ideas worth your time.",
+    venturesTitle: "Explore Our Ventures",
+    venturesSub:
+      "Different services and useful information, connected by one vision.",
+    latestTitle: "Latest Article",
+    latestCategory: "HEALTH & WELLNESS",
+    articleTitle: "Diabetes Tests Explained: What You Should Know",
+    articleText:
+      "A simple introduction to common diabetes tests and how they help you understand your health.",
+    readArticle: "Explore Health Articles",
+    aboutTitle: "One Group. A World of Possibilities.",
     aboutText:
-      "The Moti Group brings together a growing ecosystem of digital ventures and services built around everyday needs.",
-    aboutText2:
-      "From healthcare and technology to finance and useful deals, our goal is to make trusted information and helpful services easier to discover.",
-    ventureLabel: "EXPLORE OUR ECOSYSTEM",
-    ventureTitle: "Different ventures. One vision.",
-    ventureText:
-      "Discover the specialist platforms that make up The Moti Group.",
-    visit: "Visit website",
-    insightLabel: "DISCOVER MORE",
-    insightTitle: "Useful ideas for everyday decisions.",
-    contactLabel: "LET'S CONNECT",
-    contactTitle: "Have an idea? Let's talk.",
+      "The Moti Group brings together services, information and technology initiatives designed to make everyday life simpler. Explore our ventures and find what is useful to you.",
+    contactTitle: "Let's Connect",
     contactText:
-      "For questions, partnerships or new opportunities, we'd love to hear from you.",
-    email: "Email us",
-    whatsapp: "WhatsApp us",
-    footer: "One group. Multiple possibilities.",
+      "Have a question, business enquiry or idea to share? We would love to hear from you.",
+    emailUs: "Email Us",
+    whatsapp: "Chat on WhatsApp",
+    visit: "Visit Website",
+    softwareLogin: "Software Login",
+    footerText: "Bringing information, services and technology closer to you.",
+    quickLinks: "Quick Links",
+    ourVentures: "Our Ventures",
+    connect: "Connect With Us",
+    rights: "All rights reserved.",
+    language: "Language",
+    learnMore: "Learn more",
   },
   mr: {
-    nav: ["आमच्याबद्दल", "उपक्रम", "माहिती", "संपर्क"],
-    explore: "उपक्रम पहा",
-    eyebrow: "एक जोडलेले व्यासपीठ",
-    hero: "एक समूह.",
-    hero2: "अनेक शक्यता.",
+    home: "मुख्यपृष्ठ",
+    venturesNav: "आमचे उपक्रम",
+    aboutNav: "आमच्याबद्दल",
+    contactNav: "संपर्क",
+    eyebrow: "एक ग्रुप. अनेक संधी.",
+    heroTitle: "दैनंदिन जीवनासाठी माहिती, कल्पना आणि तंत्रज्ञान.",
     heroText:
-      "आरोग्य, तंत्रज्ञान, आर्थिक माहिती आणि दैनंदिन गरजांसाठी उपयुक्त डिजिटल अनुभव.",
-    aboutLabel: "मोटी ग्रुपबद्दल",
-    aboutTitle: "दैनंदिन जीवनासाठी उपयुक्त कल्पना.",
+      "आरोग्य, तंत्रज्ञान, वित्त, ऑफर्स आणि डिजिटल सोल्यूशन्स—सर्व काही The Moti Group सोबत.",
+    explore: "आमचे उपक्रम पाहा",
+    latest: "अधिक जाणून घ्या",
+    trending: "सध्या चर्चेत",
+    trendingSub: "तुमच्या उपयोगाच्या गोष्टी आणि नवीन माहिती.",
+    venturesTitle: "आमचे उपक्रम",
+    venturesSub: "एकाच ध्येयातून जोडलेल्या विविध सेवा आणि उपयुक्त माहिती.",
+    latestTitle: "नवीन लेख",
+    latestCategory: "आरोग्य आणि निरोगी जीवन",
+    articleTitle: "डायबिटीज चाचण्या: तुम्हाला काय माहीत असावे?",
+    articleText:
+      "डायबिटीजच्या सामान्य चाचण्या आणि त्या तुमचे आरोग्य समजून घेण्यासाठी कशा मदत करतात याची सोपी माहिती.",
+    readArticle: "आरोग्यविषयक लेख पाहा",
+    aboutTitle: "एक ग्रुप. अनेक शक्यता.",
     aboutText:
-      "मोटी ग्रुप विविध डिजिटल उपक्रम आणि सेवांना एका व्यासपीठावर आणतो.",
-    aboutText2:
-      "आरोग्यसेवा, तंत्रज्ञान, आर्थिक माहिती आणि उपयुक्त ऑफर्स सहज उपलब्ध करून देणे हे आमचे ध्येय आहे.",
-    ventureLabel: "आमचे उपक्रम",
-    ventureTitle: "वेगवेगळे उपक्रम. एकच दृष्टीकोन.",
-    ventureText:
-      "मोटी ग्रुपमधील विविध डिजिटल प्लॅटफॉर्मची ओळख करून घ्या.",
-    visit: "वेबसाइट पहा",
-    insightLabel: "अधिक जाणून घ्या",
-    insightTitle: "दैनंदिन निर्णयांसाठी उपयुक्त माहिती.",
-    contactLabel: "चला, जोडले जाऊया",
-    contactTitle: "नवीन कल्पना? चला बोलूया.",
+      "The Moti Group विविध सेवा, माहिती आणि तंत्रज्ञान उपक्रम एकत्र आणतो. दैनंदिन जीवन सोपे करण्यासाठी आमच्या उपक्रमांमधून तुमच्या उपयोगाची माहिती आणि सेवा शोधा.",
+    contactTitle: "चला, संपर्कात राहूया",
     contactText:
-      "प्रश्न, भागीदारी किंवा नवीन संधींसाठी आमच्याशी संपर्क साधा.",
-    email: "ईमेल करा",
-    whatsapp: "WhatsApp वर संपर्क",
-    footer: "एक समूह. अनेक शक्यता.",
+      "तुम्हाला काही प्रश्न, व्यावसायिक चौकशी किंवा नवीन कल्पना शेअर करायची आहे? आम्हाला नक्की कळवा.",
+    emailUs: "ईमेल करा",
+    whatsapp: "WhatsApp वर संपर्क करा",
+    visit: "वेबसाइट पाहा",
+    softwareLogin: "सॉफ्टवेअर लॉगिन",
+    footerText: "माहिती, सेवा आणि तंत्रज्ञान तुमच्या अधिक जवळ आणत आहोत.",
+    quickLinks: "महत्त्वाचे दुवे",
+    ourVentures: "आमचे उपक्रम",
+    connect: "संपर्क साधा",
+    rights: "सर्व हक्क राखीव.",
+    language: "भाषा",
+    learnMore: "अधिक जाणून घ्या",
   },
 };
 
 export default function Home() {
+  const [language, setLanguage] = useState<Lang>("en");
+  const t = translations[language];
+
   return (
-    <main className="min-h-screen bg-[#f5f6f8] text-slate-900">
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#08111c]/95 text-white shadow-lg backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-4 py-4 sm:px-7">
-          <Link href="/" className="flex shrink-0 items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-2xl font-black text-[#08111c]">
-              m.
-            </span>
-            <span className="text-lg font-bold tracking-tight sm:text-2xl">
-              the moti group<span className="text-orange-500">.</span>
-            </span>
+    <main className="min-h-screen bg-[#f7f8fa] text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-600 text-xl font-black text-white">
+              M
+            </div>
+            <div>
+              <div className="text-lg font-black tracking-tight">
+                THE MOTI GROUP
+              </div>
+              <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Ideas. Services. Innovation.
+              </div>
+            </div>
           </Link>
 
-          <nav className="hidden items-center gap-7 text-sm font-semibold lg:flex">
-            <a className="text-orange-400" href="#home">Home</a>
-            <a className="transition hover:text-orange-400" href="#ventures">Ventures</a>
-            <a className="transition hover:text-orange-400" href="#articles">Blog</a>
-            <a className="transition hover:text-orange-400" href="#about">About</a>
-            <a className="transition hover:text-orange-400" href="#contact">Contact</a>
+          <nav className="hidden items-center gap-6 text-sm font-semibold md:flex">
+            <a href="#home" className="hover:text-orange-600">{t.home}</a>
+            <a href="#ventures" className="hover:text-orange-600">{t.venturesNav}</a>
+            <a href="#about" className="hover:text-orange-600">{t.aboutNav}</a>
+            <a href="#contact" className="hover:text-orange-600">{t.contactNav}</a>
           </nav>
 
-          <div className="flex items-center gap-3">
-           <div className="flex items-center rounded-lg border border-white/15 p-1 text-xs font-semibold">
-              <span className="rounded-md bg-white/15 px-3 py-2">EN</span>
-              <a
-                href="https://health.themotigroup.co.in/2026/08/Diabetes%20Test%20When%20Should%20You%20Get%20Tested.html"
-                className="rounded-md px-3 py-2 text-white/75 hover:bg-white/10"
-              >
-                मराठी
-              </a>
-            </div>
-            <a
-              href="#ventures"
-              className="rounded-full bg-orange-500 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-orange-600 sm:px-5"
+          <div className="flex shrink-0 items-center gap-1 rounded-full border border-slate-200 bg-slate-50 p-1">
+            <button
+              type="button"
+              onClick={() => setLanguage("en")}
+              aria-pressed={language === "en"}
+              className={`rounded-full px-3 py-2 text-xs font-bold transition ${
+                language === "en"
+                  ? "bg-slate-900 text-white"
+                  : "text-slate-600 hover:bg-white"
+              }`}
             >
-              Explore
-            </a>
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => setLanguage("mr")}
+              aria-pressed={language === "mr"}
+              className={`rounded-full px-3 py-2 text-xs font-bold transition ${
+                language === "mr"
+                  ? "bg-orange-600 text-white"
+                  : "text-slate-600 hover:bg-white"
+              }`}
+            >
+              मराठी
+            </button>
           </div>
         </div>
+
+        <nav className="flex gap-5 overflow-x-auto border-t border-slate-100 px-4 py-3 text-sm font-semibold md:hidden">
+          <a href="#home" className="whitespace-nowrap">{t.home}</a>
+          <a href="#ventures" className="whitespace-nowrap">{t.venturesNav}</a>
+          <a href="#about" className="whitespace-nowrap">{t.aboutNav}</a>
+          <a href="#contact" className="whitespace-nowrap">{t.contactNav}</a>
+        </nav>
       </header>
 
-      {/* HERO + TRENDING */}
-      <section id="home" className="mx-auto max-w-[1440px] px-4 pt-5 sm:px-7">
-        <div className="grid gap-5 lg:grid-cols-[1.9fr_0.9fr]">
-          <div className="relative isolate flex min-h-[420px] overflow-hidden rounded-3xl bg-[#07111e] text-white sm:min-h-[490px]">
-            <img
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1800&q=90"
-              alt="Modern technology workspace"
-              className="absolute inset-0 -z-20 h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#06101c] via-[#06101c]/90 to-[#06101c]/20" />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#06101c]/60 to-transparent" />
+      <section id="home" className="relative overflow-hidden bg-slate-950 text-white">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=90"
+            alt=""
+            className="h-full w-full object-cover opacity-25"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-900/45" />
+        </div>
 
-            <div className="flex max-w-2xl flex-col items-start justify-center p-7 sm:p-12 lg:p-14">
-              <span className="rounded-full bg-orange-500 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider">
-                One group. Many possibilities.
-              </span>
-              <h1 className="mt-6 text-4xl font-black leading-[1.08] tracking-tight sm:text-6xl">
-                Discover ideas.
-                <br />
-                Explore what&apos;s next.
-              </h1>
-              <p className="mt-5 max-w-lg text-base leading-7 text-white/80 sm:text-lg">
-                Healthcare, technology, finance and digital discoveries —
-                all connected through the MOTI Group ecosystem.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="#ventures"
-                  className="rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-orange-600"
-                >
-                  Explore our ventures →
-                </a>
-                <a
-                  href="#articles"
-                  className="rounded-xl border border-white/40 bg-white/10 px-6 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
-                >
-                  Latest article
-                </a>
-              </div>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+          <div>
+            <div className="mb-5 inline-flex rounded-full border border-orange-400/40 bg-orange-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-300">
+              {t.eyebrow}
+            </div>
+            <h1 className="max-w-3xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              {t.heroTitle}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              {t.heroText}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#ventures"
+                className="rounded-xl bg-orange-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/30 transition hover:bg-orange-500"
+              >
+                {t.explore} <span aria-hidden="true">→</span>
+              </a>
+              <a
+                href="#trending"
+                className="rounded-xl border border-white/25 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/10"
+              >
+                {t.latest}
+              </a>
             </div>
           </div>
 
-          {/* TRENDING */}
-          <aside className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-            <div className="mb-5 flex items-center gap-2">
-              <span className="text-xl text-orange-500">🔥</span>
-              <h2 className="text-xl font-extrabold">Trending Now</h2>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="relative min-h-48 overflow-hidden rounded-2xl border border-white/10 sm:min-h-60">
+              <img
+                src={ventures[0].image}
+                alt="Healthcare"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
+              <div className="absolute bottom-4 left-4 font-bold">Health & Care</div>
             </div>
-            <div className="space-y-5">
-              {trending.map((item, index) => (
-                <a
-                  key={item.title}
-                  href={item.href}
-                  className="group flex items-center gap-3"
-                >
-                  <span className="w-4 shrink-0 text-lg font-extrabold text-slate-400">
-                    {index + 1}
-                  </span>
+            <div className="relative mt-8 min-h-48 overflow-hidden rounded-2xl border border-white/10 sm:min-h-60">
+              <img
+                src={ventures[2].image}
+                alt="Technology"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
+              <div className="absolute bottom-4 left-4 font-bold">Technology</div>
+            </div>
+            <div className="relative min-h-36 overflow-hidden rounded-2xl border border-white/10">
+              <img
+                src={ventures[3].image}
+                alt="Finance"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent" />
+              <div className="absolute bottom-4 left-4 font-bold">Finance</div>
+            </div>
+            <div className="relative mt-4 min-h-36 overflow-hidden rounded-2xl border border-white/10">
+              <img
+                src={ventures[4].image}
+                alt="Shopping deals"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent" />
+              <div className="absolute bottom-4 left-4 font-bold">Deals & Offers</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="trending" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">
+              THE MOTI GROUP
+            </div>
+            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+              {t.trending}
+            </h2>
+            <p className="mt-2 text-slate-500">{t.trendingSub}</p>
+          </div>
+          <div className="h-1.5 w-20 rounded-full bg-orange-600" />
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {trending.map((item) => (
+            <article
+              key={item.id}
+              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <a href={item.href} className="block">
+                <div className="relative h-52 overflow-hidden">
                   <img
                     src={item.image}
-                    alt=""
-                    className="h-[68px] w-[82px] shrink-0 rounded-xl object-cover"
-                  />
-                  <span className="min-w-0">
-                    <span className="block text-sm font-bold leading-5 transition group-hover:text-orange-600">
-                      {item.title}
-                    </span>
-                    <span className="mt-1 block text-xs text-slate-500">
-                      {item.category} · {item.time}
-                    </span>
-                  </span>
-                </a>
-              ))}
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      {/* CATEGORY SHORTCUTS */}
-      <section className="mx-auto max-w-[1440px] px-4 pt-5 sm:px-7">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-          {[
-            { icon: "♡", title: "Health", color: "bg-emerald-500", href: ventures[1].href },
-            { icon: "▦", title: "Technology", color: "bg-indigo-600", href: ventures[2].href },
-            { icon: "₹", title: "Finance", color: "bg-pink-500", href: ventures[3].href },
-            { icon: "◇", title: "Deals & Offers", color: "bg-orange-500", href: ventures[4].href },
-            { icon: "✚", title: "Diagnostics", color: "bg-sky-600", href: ventures[0].href },
-          ].map((item) => (
-            <a
-              key={item.title}
-              href={item.href}
-              className="group flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:flex-col sm:justify-center sm:gap-2 sm:py-5"
-            >
-              <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${item.color} text-xl font-bold text-white`}>
-                {item.icon}
-              </span>
-              <span className="text-sm font-bold">{item.title}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* ARTICLE + SIDEBAR */}
-      <section id="articles" className="mx-auto max-w-[1440px] px-4 py-12 sm:px-7 sm:py-16">
-        <div className="grid gap-7 lg:grid-cols-[1.9fr_0.9fr]">
-          <div>
-            <div className="mb-6 flex items-end justify-between gap-3">
-              <div>
-                <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-600">
-                  Fresh from MOTI Health
-                </p>
-                <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
-                  Latest Article
-                </h2>
-              </div>
-              <a
-                href="https://health.themotigroup.co.in/"
-                className="shrink-0 text-sm font-bold text-orange-600 hover:text-orange-700"
-              >
-                Visit Health →
-              </a>
-            </div>
-
-            {/* ONE BLOG CARD ONLY */}
-            <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-xl">
-              <a href={featuredArticle.href} className="group block">
-                <div className="relative h-56 overflow-hidden sm:h-[360px]">
-                  <img
-                    src={featuredArticle.image}
-                    alt="Healthcare professional in a clinical setting"
+                    alt={item.title[language]}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-5 top-5 rounded-full bg-emerald-500 px-4 py-2 text-xs font-extrabold text-white shadow">
-                    HEALTH
+                  <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-900 shadow">
+                    {item.category[language]}
                   </span>
                 </div>
-                <div className="p-5 sm:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Featured health guide
-                  </p>
-                  <h3 className="mt-3 text-2xl font-extrabold leading-tight sm:text-3xl">
-                    {featuredArticle.title}
+                <div className="p-5">
+                  <h3 className="text-xl font-extrabold leading-snug group-hover:text-orange-600">
+                    {item.title[language]}
                   </h3>
-                  <p className="mt-3 max-w-2xl leading-7 text-slate-600">
-                    {featuredArticle.description}
+                  <p className="mt-3 text-sm leading-6 text-slate-500">
+                    {item.description[language]}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-bold text-white transition group-hover:bg-orange-600">
-                    Read Article <span aria-hidden="true">→</span>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-orange-600">
+                    {t.learnMore} <span aria-hidden="true">→</span>
                   </span>
                 </div>
               </a>
             </article>
-            <p className="mt-3 text-xs leading-5 text-slate-500">
-              The article includes its own English–Marathi language switch.
-              Open it to choose your preferred language.
-            </p>
-          </div>
-
-          {/* NEWSLETTER / VENTURE PROMO */}
-          <aside className="space-y-5">
-            <div className="rounded-3xl bg-[#e5f9fc] p-6 sm:p-7">
-              <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-xl">
-                  ✉
-                </span>
-                <h3 className="text-xl font-extrabold">Stay Connected</h3>
-              </div>
-              <p className="mt-4 text-sm leading-6 text-slate-600">
-                Explore updates, useful articles and services across our
-                digital ventures.
-              </p>
-              <a
-                href="mailto:info@themotigroup.co.in"
-                className="mt-5 block rounded-xl bg-[#08111c] px-5 py-3.5 text-center text-sm font-bold text-white transition hover:bg-slate-800"
-              >
-                Contact the MOTI Group
-              </a>
-            </div>
-
-            <a
-              href="#ventures"
-              className="group relative block min-h-[260px] overflow-hidden rounded-3xl bg-[#08243b] text-white"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=85"
-                alt="Team collaborating with digital technology"
-                className="absolute inset-0 h-full w-full object-cover opacity-50 transition duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#06111d] via-[#06111d]/65 to-transparent" />
-              <div className="relative flex min-h-[260px] flex-col items-start justify-end p-6">
-                <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-cyan-300">
-                  One ecosystem
-                </p>
-                <h3 className="mt-3 text-3xl font-black">
-                  Explore Our
-                  <br />
-                  Digital Ventures
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-white/80">
-                  Healthcare · Technology · Finance · Deals
-                </p>
-                <span className="mt-5 rounded-xl border border-white/40 px-4 py-2.5 text-sm font-bold transition group-hover:bg-white group-hover:text-slate-950">
-                  Learn More →
-                </span>
-              </div>
-            </a>
-          </aside>
+          ))}
         </div>
       </section>
 
-      {/* VENTURES */}
-      <section id="ventures" className="border-y border-slate-200 bg-white py-14 sm:py-20">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-7">
-          <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-600">
-                Discover our ecosystem
-              </p>
-              <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">
-                More from Our Ventures
-              </h2>
+      <section id="ventures" className="border-y border-slate-200 bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">
+              OUR ECOSYSTEM
             </div>
-            <p className="max-w-lg text-sm leading-6 text-slate-500">
-              Different areas of everyday life, brought together under
-              the MOTI Group.
-            </p>
+            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+              {t.venturesTitle}
+            </h2>
+            <p className="mt-3 leading-7 text-slate-500">{t.venturesSub}</p>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {ventures.map((venture) => (
-              <a
-                key={venture.name}
-                href={venture.href}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+              <article
+                key={venture.id}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="h-40 overflow-hidden">
+                <a href={venture.href} className="relative block h-52 overflow-hidden">
                   <img
                     src={venture.image}
                     alt={venture.name}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
-                </div>
-                <div className="p-5">
-                  <span className="rounded-full bg-orange-50 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide text-orange-700">
-                    {venture.tag}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
+                  <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-slate-900">
+                    {venture.tag[language]}
                   </span>
-                  <h3 className="mt-4 text-lg font-extrabold">
-                    {venture.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
-                    {venture.description}
+                </a>
+
+                <div className="flex flex-1 flex-col p-5">
+                  <p className="text-xs font-bold uppercase tracking-wider text-orange-600">
+                    {venture.category[language]}
                   </p>
-                  <span className="mt-5 inline-block text-sm font-bold text-orange-600">
-                    Explore venture →
-                  </span>
+                  <h3 className="mt-2 text-xl font-black">{venture.name}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-slate-500">
+                    {venture.description[language]}
+                  </p>
+                  <a
+                    href={venture.href}
+                    target={venture.id === "technologies" ? "_blank" : undefined}
+                    rel={venture.id === "technologies" ? "noreferrer" : undefined}
+                    className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-bold text-white transition hover:bg-orange-600"
+                  >
+                    {venture.id === "technologies"
+                      ? t.softwareLogin
+                      : venture.cta[language]}
+                    <span aria-hidden="true">→</span>
+                  </a>
                 </div>
-              </a>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="mx-auto grid max-w-[1440px] gap-10 px-4 py-16 sm:px-7 sm:py-24 lg:grid-cols-2 lg:items-center">
-        <div>
-          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-600">
-            About the group
-          </p>
-          <h2 className="mt-3 text-4xl font-black leading-tight tracking-tight sm:text-5xl">
-            One group.
-            <br />
-            Multiple possibilities.
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
+          <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div className="grid md:grid-cols-2">
+              <div className="min-h-64">
+                <img
+                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=85"
+                  alt={t.articleTitle}
+                  className="h-full min-h-64 w-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col justify-center p-6 sm:p-8">
+                <div className="text-xs font-black uppercase tracking-[0.15em] text-orange-600">
+                  {t.latestCategory}
+                </div>
+                <h2 className="mt-3 text-2xl font-black leading-tight">
+                  {t.articleTitle}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-slate-500">
+                  {t.articleText}
+                </p>
+                <a
+                  href="https://health.themotigroup.co.in/"
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl bg-orange-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-500"
+                >
+                  {t.readArticle} <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <aside className="flex flex-col justify-center rounded-3xl bg-slate-950 p-7 text-white sm:p-9">
+            <div className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-orange-400">
+              THE MOTI GROUP
+            </div>
+            <h2 className="text-2xl font-black sm:text-3xl">{t.aboutTitle}</h2>
+            <p className="mt-4 leading-7 text-slate-300">{t.aboutText}</p>
+            <a
+              href="#about"
+              className="mt-6 inline-flex w-fit items-center gap-2 font-bold text-orange-400 hover:text-orange-300"
+            >
+              {t.aboutNav} <span aria-hidden="true">→</span>
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" className="bg-orange-50 py-16">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-600 text-2xl font-black text-white">
+            M
+          </div>
+          <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+            {t.aboutTitle}
           </h2>
-        </div>
-        <div>
-          <p className="text-lg leading-8 text-slate-600">
-            The MOTI Group brings together healthcare, technology,
-            finance, deals and digital content in one growing ecosystem.
-            Our aim is to make useful services and information easier to
-            discover and access.
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-600">
+            {t.aboutText}
           </p>
-          <a
-            href="#contact"
-            className="mt-6 inline-flex rounded-xl bg-[#08111c] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-orange-600"
-          >
-            Connect with us →
-          </a>
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="bg-[#08111c] text-white">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-8 px-4 py-14 sm:px-7 sm:py-20 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-400">
-              Let&apos;s connect
-            </p>
-            <h2 className="mt-3 text-3xl font-black sm:text-5xl">
-              Let&apos;s build what&apos;s next.
-            </h2>
-            <p className="mt-4 max-w-xl leading-7 text-slate-300">
-              Interested in our ventures, collaborations or opportunities?
-              We&apos;d love to hear from you.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="mailto:info@themotigroup.co.in"
-              className="rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-[#08111c] transition hover:bg-orange-400"
-            >
-              Email Us
-            </a>
-            <a
-              href="https://wa.me/919867242848"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-xl border border-white/30 px-6 py-3.5 text-sm font-bold transition hover:bg-white/10"
-            >
-              WhatsApp
-            </a>
+      <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200 sm:p-10">
+          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">
+                GET IN TOUCH
+              </div>
+              <h2 className="text-3xl font-black">{t.contactTitle}</h2>
+              <p className="mt-3 max-w-2xl leading-7 text-slate-500">
+                {t.contactText}
+              </p>
+              <p className="mt-4 font-semibold text-slate-800">
+                +91 82862 89143
+              </p>
+              <p className="mt-1 text-slate-600">info@themotigroup.co.in</p>
+            </div>
+            <div className="flex flex-wrap gap-3 md:max-w-xs md:flex-col">
+              <a
+                href="mailto:info@themotigroup.co.in"
+                className="rounded-xl bg-slate-900 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-slate-700"
+              >
+                {t.emailUs}
+              </a>
+              <a
+                href="https://wa.me/919867242848"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl bg-green-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-green-700"
+              >
+                {t.whatsapp}
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#050b12] text-slate-400">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-6 px-4 py-8 sm:px-7 md:flex-row md:items-center md:justify-between">
+      <footer className="bg-slate-950 text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
           <div>
-            <p className="text-lg font-extrabold text-white">
-              the moti group<span className="text-orange-500">.</span>
+            <div className="text-xl font-black">THE MOTI GROUP</div>
+            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-400">
+              {t.footerText}
             </p>
-            <p className="mt-1 text-sm">One group. Multiple possibilities.</p>
           </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm">
-            <a href="#about" className="hover:text-white">About</a>
-            <a href="#ventures" className="hover:text-white">Ventures</a>
-            <a href="#articles" className="hover:text-white">Blog</a>
-            <a href="#contact" className="hover:text-white">Contact</a>
-            <a href="mailto:info@themotigroup.co.in" className="hover:text-white">
-              Email
-            </a>
+
+          <div>
+            <h3 className="font-bold">{t.quickLinks}</h3>
+            <div className="mt-4 flex flex-col items-start gap-3 text-sm text-slate-400">
+              <a href="#home" className="hover:text-white">{t.home}</a>
+              <a href="#ventures" className="hover:text-white">{t.ourVentures}</a>
+              <a href="#about" className="hover:text-white">{t.aboutNav}</a>
+              <a href="#contact" className="hover:text-white">{t.contactNav}</a>
+            </div>
           </div>
-          <p className="text-xs">
-            © {new Date().getFullYear()} the moti group. All rights reserved.
-          </p>
+
+          <div>
+            <h3 className="font-bold">{t.connect}</h3>
+            <div className="mt-4 flex flex-col items-start gap-3 text-sm text-slate-400">
+              <a href="mailto:info@themotigroup.co.in" className="hover:text-white">
+                info@themotigroup.co.in
+              </a>
+              <a href="https://wa.me/919867242848" className="hover:text-white">
+                WhatsApp
+              </a>
+              <a href="http://billing.themotigroup.co.in/" className="hover:text-white">
+                Moti Technologies — {t.softwareLogin}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-slate-500">
+          © {new Date().getFullYear()} The Moti Group. {t.rights}
         </div>
       </footer>
 
-      {/* FLOATING CONTACT */}
-      <div className="fixed bottom-5 right-4 z-50 flex flex-col gap-3">
-        <a
-          href="https://wa.me/918692823879"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Chat on WhatsApp"
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-[#20c765] text-lg font-black text-white shadow-xl transition hover:scale-110"
-        >
-          W
-        </a>
-        <a
-          href="tel:+918286289143"
-          aria-label="Call MOTI Group"
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-xl text-white shadow-xl transition hover:scale-110"
-        >
-          ☎
-        </a>
-      </div>
+      <a
+        href="https://wa.me/919867242848"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat with The Moti Group on WhatsApp"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-2xl text-white shadow-xl transition hover:scale-105 hover:bg-green-600"
+      >
+        ☎
+      </a>
     </main>
   );
 }
