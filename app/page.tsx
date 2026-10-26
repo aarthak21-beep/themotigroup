@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Lang = "en" | "mr";
+
+type BlogPost = { title: string; link: string; source: string; date: string; description: string; image: string | null };
 
 const ventures = [
   {
@@ -154,6 +156,10 @@ const translations = {
     latest: "Discover More",
     trending: "Trending Now",
     trendingSub: "Stories and ideas worth your time.",
+    blogsTitle: "Latest from Our Blogs",
+    blogsSub: "Fresh posts from Health, TechLab, Finance and Dealz.",
+    noBlogs: "Loading latest posts…",
+    readMore: "Read post",
     venturesTitle: "Explore Our Ventures",
     venturesSub:
       "Different services and useful information, connected by one vision.",
@@ -194,6 +200,10 @@ const translations = {
     latest: "अधिक जाणून घ्या",
     trending: "सध्या चर्चेत",
     trendingSub: "तुमच्या उपयोगाच्या गोष्टी आणि नवीन माहिती.",
+    blogsTitle: "आमच्या ब्लॉगवरील नवीन लेख",
+    blogsSub: "Health, TechLab, Finance आणि Dealz वरील ताज्या पोस्ट.",
+    noBlogs: "नवीन पोस्ट लोड होत आहेत…",
+    readMore: "लेख वाचा",
     venturesTitle: "आमचे उपक्रम",
     venturesSub: "एकाच ध्येयातून जोडलेल्या विविध सेवा आणि उपयुक्त माहिती.",
     latestTitle: "नवीन लेख",
@@ -224,6 +234,13 @@ const translations = {
 
 export default function Home() {
   const [language, setLanguage] = useState<Lang>("en");
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  useEffect(() => {
+    fetch("/api/blogs")
+      .then((response) => response.ok ? response.json() : [])
+      .then((posts: BlogPost[]) => setBlogPosts(Array.isArray(posts) ? posts : []))
+      .catch(() => setBlogPosts([]));
+  }, []);
   const t = translations[language];
 
   return (
@@ -413,6 +430,36 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section id="blogs" className="border-y border-slate-200 bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">THE MOTI GROUP</div>
+            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">{t.blogsTitle}</h2>
+            <p className="mt-2 text-slate-500">{t.blogsSub}</p>
+          </div>
+          {blogPosts.length === 0 ? (
+            <p className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">{t.noBlogs}</p>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {blogPosts.map((post) => (
+                <article key={post.link} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                  <a href={post.link} target="_blank" rel="noreferrer" className="block">
+                    {post.image ? <img src={post.image} alt="" className="h-48 w-full object-cover" loading="lazy" /> : <div className="flex h-48 items-center justify-center bg-orange-50 text-4xl font-black text-orange-600">M</div>}
+                    <div className="p-5">
+                      <div className="text-xs font-bold uppercase tracking-wider text-orange-600">{post.source}{post.date ? ` · ${new Date(post.date).toLocaleDateString(language === "mr" ? "mr-IN" : "en-IN")}` : ""}</div>
+                      <h3 className="mt-3 text-xl font-extrabold leading-snug group-hover:text-orange-600">{post.title}</h3>
+                      {post.description ? <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-500">{post.description}</p> : null}
+                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-orange-600">{t.readMore} <span aria-hidden="true">→</span></span>
+                    </div>
+                  </a>
+                </article>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
       <section id="ventures" className="border-y border-slate-200 bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-10 max-w-2xl text-center">
@@ -541,10 +588,7 @@ export default function Home() {
               <p className="mt-3 max-w-2xl leading-7 text-slate-500">
                 {t.contactText}
               </p>
-              <p className="mt-4 font-semibold text-slate-800">
-                +91 82862 89143
-              </p>
-              <p className="mt-1 text-slate-600">info@themotigroup.co.in</p>
+              <p className="mt-4 text-slate-600">info@themotigroup.co.in</p>
             </div>
             <div className="flex flex-wrap gap-3 md:max-w-xs md:flex-col">
               <a
@@ -554,7 +598,7 @@ export default function Home() {
                 {t.emailUs}
               </a>
               <a
-                href="https://wa.me/919867242848"
+                href="https://wa.me/918692823879"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-xl bg-green-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-green-700"
@@ -591,7 +635,7 @@ export default function Home() {
               <a href="mailto:info@themotigroup.co.in" className="hover:text-white">
                 info@themotigroup.co.in
               </a>
-              <a href="https://wa.me/919867242848" className="hover:text-white">
+              <a href="https://wa.me/918692823879" className="hover:text-white">
                 WhatsApp
               </a>
               <a href="http://billing.themotigroup.co.in/" className="hover:text-white">
@@ -607,13 +651,13 @@ export default function Home() {
       </footer>
 
       <a
-        href="https://wa.me/919867242848"
+        href="https://wa.me/918692823879"
         target="_blank"
         rel="noreferrer"
         aria-label="Chat with The Moti Group on WhatsApp"
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-2xl text-white shadow-xl transition hover:scale-105 hover:bg-green-600"
       >
-        ☎
+        WhatsApp
       </a>
     </main>
   );
