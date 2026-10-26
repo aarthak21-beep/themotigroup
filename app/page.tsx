@@ -729,11 +729,11 @@ export default function Home() {
                 <a href="#trending" className="transition hover:translate-x-1 hover:text-white">{t.latest}</a>
                 <a href="#about" className="transition hover:translate-x-1 hover:text-white">{t.aboutNav}</a>
                 <a href="#contact" className="transition hover:translate-x-1 hover:text-white">{t.contactNav}</a>
-                <a href="/about-us" className="transition hover:translate-x-1 hover:text-white">About Us / आमच्याबद्दल</a>
-                <a href="/contact-us" className="transition hover:translate-x-1 hover:text-white">Contact Us / संपर्क</a>
-                <a href="/privacy-policy" className="transition hover:translate-x-1 hover:text-white">Privacy Policy / गोपनीयता</a>
-                <a href="/terms-and-conditions" className="transition hover:translate-x-1 hover:text-white">Terms & Conditions / अटी व शर्ती</a>
-                <a href="/cookie-policy" className="transition hover:translate-x-1 hover:text-white">Cookie Policy / कुकी धोरण</a>
+                <a href="/about-us" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "आमच्याबद्दल" : "About Us"}</a>
+                <a href="/contact-us" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "संपर्क" : "Contact Us"}</a>
+                <a href="/privacy-policy" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "गोपनीयता धोरण" : "Privacy Policy"}</a>
+                <a href="/terms-and-conditions" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "अटी व शर्ती" : "Terms & Conditions"}</a>
+                <a href="/cookie-policy" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "कुकी धोरण" : "Cookie Policy"}</a>
               </div>
             </div>
 
