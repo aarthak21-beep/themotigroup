@@ -10,7 +10,7 @@ type BlogPost = { title: string; link: string; source: string; date: string; des
 const ventures = [
   {
     id: "diagnostics",
-    name: "Moti Diagnostics",
+    name: "Moti Diagnostics Centre",
     category: { en: "Healthcare", mr: "आरोग्यसेवा" },
     tag: { en: "Diagnostics & Lab", mr: "डायग्नोस्टिक्स आणि लॅब" },
     description: {
@@ -52,7 +52,7 @@ const ventures = [
   },
   {
     id: "finance",
-    name: "Moti Finance",
+    name: "Moti Financial",
     category: { en: "Finance", mr: "वित्त" },
     tag: { en: "Money & Finance", mr: "पैसे आणि आर्थिक माहिती" },
     description: {
@@ -351,7 +351,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            <a href="https://diagnostics.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-xl shadow-black/20 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:border-orange-300/50 hover:shadow-orange-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:min-h-52" aria-label="Health & Care - Moti Diagnostics">
+            <a href="https://diagnostics.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-xl shadow-black/20 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:border-orange-300/50 hover:shadow-orange-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:min-h-52" aria-label="Health & Care - Moti Diagnostics Centre">
               <img src={ventures[0].image} alt="Health & Care" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
               <div className="absolute bottom-4 left-4 font-bold text-white">Health & Care</div>
@@ -361,7 +361,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
               <div className="absolute bottom-4 left-4 font-bold text-white">Technology</div>
             </a>
-            <a href="https://financial.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-xl shadow-black/20 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:border-orange-300/50 hover:shadow-orange-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:min-h-52" aria-label="Finance - Moti Finance">
+            <a href="https://financial.themotigroup.co.in/" className="group relative min-h-40 overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-xl shadow-black/20 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:border-orange-300/50 hover:shadow-orange-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:min-h-52" aria-label="Finance - Moti Financial">
               <img src={ventures[3].image} alt="Finance" className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
               <div className="absolute bottom-4 left-4 font-bold text-white">Finance</div>
@@ -439,7 +439,7 @@ export default function Home() {
               <div className="mt-4 flex flex-wrap gap-3 text-sm font-bold">
                 <a className="text-orange-600 hover:underline" href="https://health.themotigroup.co.in/">Moti Health ↗</a>
                 <a className="text-orange-600 hover:underline" href="https://techlab.themotigroup.co.in/">Moti TechLab ↗</a>
-                <a className="text-orange-600 hover:underline" href="https://financial.themotigroup.co.in/">Moti Finance ↗</a>
+                <a className="text-orange-600 hover:underline" href="https://financial.themotigroup.co.in/">Moti Financial ↗</a>
                 <a className="text-orange-600 hover:underline" href="https://dealz.themotigroup.co.in/">Moti Dealz ↗</a>
               </div>
             </div>
