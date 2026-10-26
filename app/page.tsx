@@ -47,7 +47,7 @@ const ventures = [
     description: "Discover useful deals, offers and smart shopping opportunities.",
     href: "https://dealz.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo- shopping",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85",
     tag: "Deals",
   },
 ];
@@ -91,7 +91,7 @@ const trending = [
     title: "Explore Deals & Offers",
     href: "https://dealz.themotigroup.co.in/",
     image:
-      "https://images.unsplash.com/photo- shopping",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85",
     time: "Shopping",
   },
 ];
