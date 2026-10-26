@@ -158,7 +158,8 @@ const translations = {
     trendingSub: "Stories and ideas worth your time.",
     blogsTitle: "Latest from Our Blogs",
     blogsSub: "Fresh posts from Health, TechLab, Finance and Dealz.",
-    noBlogs: "Loading latest posts…",
+    noBlogs: "No recent posts are available right now. Please visit one of our blogs below.",
+    loadingBlogs: "Loading latest posts…",
     readMore: "Read post",
     venturesTitle: "Explore Our Ventures",
     venturesSub:
@@ -202,7 +203,8 @@ const translations = {
     trendingSub: "तुमच्या उपयोगाच्या गोष्टी आणि नवीन माहिती.",
     blogsTitle: "आमच्या ब्लॉगवरील नवीन लेख",
     blogsSub: "Health, TechLab, Finance आणि Dealz वरील ताज्या पोस्ट.",
-    noBlogs: "नवीन पोस्ट लोड होत आहेत…",
+    noBlogs: "सध्या नवीन पोस्ट उपलब्ध नाहीत. खालील ब्लॉगला भेट द्या.",
+    loadingBlogs: "नवीन पोस्ट लोड होत आहेत…",
     readMore: "लेख वाचा",
     venturesTitle: "आमचे उपक्रम",
     venturesSub: "एकाच ध्येयातून जोडलेल्या विविध सेवा आणि उपयुक्त माहिती.",
@@ -235,11 +237,16 @@ const translations = {
 export default function Home() {
   const [language, setLanguage] = useState<Lang>("en");
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [blogsLoading, setBlogsLoading] = useState(true);
   useEffect(() => {
     fetch("/api/blogs")
-      .then((response) => response.ok ? response.json() : [])
+      .then((response) => {
+        if (!response.ok) throw new Error("Unable to load posts");
+        return response.json();
+      })
       .then((posts: BlogPost[]) => setBlogPosts(Array.isArray(posts) ? posts : []))
-      .catch(() => setBlogPosts([]));
+      .catch(() => setBlogPosts([]))
+      .finally(() => setBlogsLoading(false));
   }, []);
   const t = translations[language];
 
@@ -438,8 +445,18 @@ export default function Home() {
             <h2 className="text-3xl font-black tracking-tight sm:text-4xl">{t.blogsTitle}</h2>
             <p className="mt-2 text-slate-500">{t.blogsSub}</p>
           </div>
-          {blogPosts.length === 0 ? (
-            <p className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">{t.noBlogs}</p>
+          {blogsLoading ? (
+            <p className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">{t.loadingBlogs}</p>
+          ) : blogPosts.length === 0 ? (
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">
+              <p>{t.noBlogs}</p>
+              <div className="mt-4 flex flex-wrap gap-3 text-sm font-bold">
+                <a className="text-orange-600 hover:underline" href="https://health.themotigroup.co.in/">Moti Health ↗</a>
+                <a className="text-orange-600 hover:underline" href="https://techlab.themotigroup.co.in/">Moti TechLab ↗</a>
+                <a className="text-orange-600 hover:underline" href="https://financial.themotigroup.co.in/">Moti Finance ↗</a>
+                <a className="text-orange-600 hover:underline" href="https://dealz.themotigroup.co.in/">Moti Dealz ↗</a>
+              </div>
+            </div>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {blogPosts.map((post) => (
@@ -650,15 +667,6 @@ export default function Home() {
         </div>
       </footer>
 
-      <a
-        href="https://wa.me/918692823879"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat with The Moti Group on WhatsApp"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-2xl text-white shadow-xl transition hover:scale-105 hover:bg-green-600"
-      >
-        WhatsApp
-      </a>
     </main>
   );
 }
