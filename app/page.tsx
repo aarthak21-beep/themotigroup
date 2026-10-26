@@ -239,6 +239,10 @@ export default function Home() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [blogsLoading, setBlogsLoading] = useState(true);
   useEffect(() => {
+    document.documentElement.lang = language === "mr" ? "mr" : "en";
+  }, [language]);
+
+  useEffect(() => {
     fetch("/api/blogs")
       .then((response) => {
         if (!response.ok) throw new Error("Unable to load posts");
@@ -251,7 +255,14 @@ export default function Home() {
   const t = translations[language];
 
   return (
-    <main className="min-h-screen bg-[#f7f8fa] text-slate-900">
+    <>
+      <a
+        href="#main-content"
+        className="sr-only z-[100] rounded-lg bg-white px-4 py-3 font-bold text-slate-900 focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:ring-2 focus:ring-orange-500"
+      >
+        {language === "mr" ? "मुख्य मजकुराकडे जा" : "Skip to main content"}
+      </a>
+    <main id="main-content" className="min-h-screen bg-[#f7f8fa] text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
@@ -269,10 +280,10 @@ export default function Home() {
           </Link>
 
           <nav className="hidden items-center gap-6 text-sm font-semibold md:flex">
-            <a href="#home" className="hover:text-orange-600">{t.home}</a>
-            <a href="#ventures" className="hover:text-orange-600">{t.venturesNav}</a>
-            <a href="#about" className="hover:text-orange-600">{t.aboutNav}</a>
-            <a href="#contact" className="hover:text-orange-600">{t.contactNav}</a>
+            <a href="#home" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.home}</a>
+            <a href="#ventures" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.venturesNav}</a>
+            <a href="#about" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.aboutNav}</a>
+            <a href="#contact" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.contactNav}</a>
           </nav>
 
           <div className="flex shrink-0 items-center gap-1 rounded-full border border-slate-200 bg-slate-50 p-1">
@@ -304,10 +315,10 @@ export default function Home() {
         </div>
 
         <nav className="flex gap-5 overflow-x-auto border-t border-slate-100 px-4 py-3 text-sm font-semibold md:hidden">
-          <a href="#home" className="whitespace-nowrap">{t.home}</a>
-          <a href="#ventures" className="whitespace-nowrap">{t.venturesNav}</a>
-          <a href="#about" className="whitespace-nowrap">{t.aboutNav}</a>
-          <a href="#contact" className="whitespace-nowrap">{t.contactNav}</a>
+          <a href="#home" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.home}</a>
+          <a href="#ventures" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.venturesNav}</a>
+          <a href="#about" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.aboutNav}</a>
+          <a href="#contact" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.contactNav}</a>
         </nav>
       </header>
 
@@ -400,6 +411,8 @@ export default function Home() {
                   <img
                     src={item.image}
                     alt={item.title[language]}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                   <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-900 shadow">
@@ -432,7 +445,7 @@ export default function Home() {
             <p className="mt-2 text-slate-500">{t.blogsSub}</p>
           </div>
           {blogsLoading ? (
-            <p className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">{t.loadingBlogs}</p>
+            <p role="status" aria-live="polite" className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">{t.loadingBlogs}</p>
           ) : blogPosts.length === 0 ? (
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-500">
               <p>{t.noBlogs}</p>
@@ -485,6 +498,8 @@ export default function Home() {
                   <img
                     src={venture.image}
                     alt={venture.name}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/5 to-transparent transition duration-300 group-hover:from-slate-950/65" />
@@ -527,6 +542,8 @@ export default function Home() {
                 <img
                   src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=85"
                   alt={t.articleTitle}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full min-h-64 w-full object-cover"
                 />
               </div>
@@ -671,5 +688,6 @@ export default function Home() {
       </footer>
 
     </main>
+    </>
   );
 }
