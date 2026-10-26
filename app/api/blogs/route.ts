@@ -17,7 +17,7 @@ function decodeXml(value: string) {
 }
 
 function tag(item: string, name: string) {
-  const match = item.match(new RegExp("<" + name + "(?:\s[^>]*)?>([\s\S]*?)</" + name + ">", "i"));
+  const match = item.match(new RegExp(String.raw`<${name}(?:\s[^>]*)?>([\s\S]*?)</${name}>`, "i"));
   return match ? decodeXml(match[1]).trim() : "";
 }
 
