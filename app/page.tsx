@@ -181,7 +181,7 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <div className="hidden rounded-lg border border-white/15 p-1 text-xs font-semibold sm:flex">
+           <div className="flex items-center rounded-lg border border-white/15 p-1 text-xs font-semibold">
               <span className="rounded-md bg-white/15 px-3 py-2">EN</span>
               <a
                 href="https://health.themotigroup.co.in/2026/08/Diabetes%20Test%20When%20Should%20You%20Get%20Tested.html"
