@@ -700,11 +700,11 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-3xl border border-amber-300/25 bg-gradient-to-br from-amber-200/[0.09] via-white/[0.025] to-transparent p-8 text-center shadow-[0_25px_90px_-45px_rgba(212,160,70,0.28)] sm:p-10">
             <div className="pointer-events-none absolute inset-3 rounded-2xl border border-amber-200/10" aria-hidden="true" />
             <div className="relative mx-auto mb-6 flex h-28 w-28 items-center justify-center rounded-full border border-amber-300/50 bg-gradient-to-br from-amber-200/20 via-amber-500/10 to-transparent shadow-[0_0_45px_rgba(212,160,70,0.12)]">
-              <span className="text-3xl font-serif font-semibold tracking-[0.08em] text-amber-200" aria-hidden="true">MNL</span>
+              <span className="text-3xl font-serif font-semibold tracking-[0.08em] text-amber-200" aria-hidden="true">PSP</span>
               <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border border-amber-200 bg-[#15110a]" aria-hidden="true" />
             </div>
             <p className="relative text-[10px] font-bold uppercase tracking-[0.32em] text-amber-200/80">{language === "mr" ? "दृष्टी • रणनीती • वारसा" : "VISION • STRATEGY • LEGACY"}</p>
-            <h2 className="relative mt-4 text-2xl font-semibold uppercase tracking-[0.2em] text-amber-100 sm:text-3xl">MNL</h2>
+            <h2 className="relative mt-4 text-2xl font-semibold uppercase tracking-[0.2em] text-amber-100 sm:text-3xl">PSP</h2>
             <div className="relative mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-amber-300/80 to-transparent" />
             <p className="relative mt-4 text-sm font-medium tracking-wide text-slate-300">{language === "mr" ? "The Moti Group मागील दूरदृष्टी" : "The Mind That Builds MOTI"}</p>
           </div>
