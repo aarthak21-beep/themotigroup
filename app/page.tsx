@@ -287,8 +287,9 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080b12]/90 text-white shadow-[0_10px_35px_-25px_rgba(249,115,22,0.5)] backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-600 text-xl font-black text-white">
-              M
+            <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-amber-200/30 bg-gradient-to-br from-[#fff2c7] via-[#d6a64b] to-[#8b5a16] text-2xl font-serif font-black text-[#241606] shadow-[0_0_18px_rgba(214,166,75,0.22)]" aria-label="Moti pearl-gold M logo">
+              <span className="relative z-10 drop-shadow-[0_1px_1px_rgba(255,255,255,0.45)]">M</span>
+              <span className="absolute right-1 top-1 h-2 w-2 rounded-full border border-white/80 bg-gradient-to-br from-white via-[#fff1c2] to-[#b98b42] shadow-[0_0_5px_rgba(255,245,200,0.9)]" aria-hidden="true" />
             </div>
             <div>
               <div className="text-lg font-black tracking-tight">
