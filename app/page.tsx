@@ -704,7 +704,7 @@ export default function Home() {
               <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border border-amber-200 bg-[#15110a]" aria-hidden="true" />
             </div>
             <p className="relative text-[10px] font-bold uppercase tracking-[0.32em] text-amber-200/80">{language === "mr" ? "दृष्टी • रणनीती • वारसा" : "VISION • STRATEGY • LEGACY"}</p>
-            <h2 className="relative mt-4 text-2xl font-semibold uppercase tracking-[0.12em] text-amber-100 sm:text-3xl">The Moti Architect</h2>
+            <h2 className="relative mt-4 text-2xl font-semibold uppercase tracking-[0.12em] text-amber-100 sm:text-3xl">M-Architect</h2>
             <div className="relative mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-amber-300/80 to-transparent" />
             <p className="relative mt-4 text-sm font-medium tracking-wide text-slate-300">{language === "mr" ? "The Moti Group मागील दूरदृष्टी" : "The Mind That Builds MOTI"}</p>
           </div>
