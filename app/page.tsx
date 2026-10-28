@@ -507,9 +507,37 @@ export default function Home() {
                   ? new Date(post.date).toLocaleDateString(language === "mr" ? "mr-IN" : "en-IN", { day: "numeric", month: "short", year: "numeric" })
                   : null;
                 return (
-                  <article key={post.link} className="group flex min-w-0 overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_10px_35px_-22px_rgba(15,23,42,0.3)] transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-[0_24px_55px_-25px_rgba(234,88,12,0.35)]">
-                    <a href={post.link} target="_blank" rel="noopener noreferrer" className="flex w-full items-center rounded-[inherit] p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500 sm:p-6">
-                      <h3 className="line-clamp-3 text-lg font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-orange-700 sm:text-xl">{post.title}</h3>
+                  <article key={post.link} className="group flex min-w-0 flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_10px_35px_-22px_rgba(15,23,42,0.3)] transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-[0_24px_55px_-25px_rgba(234,88,12,0.35)]">
+                    <a href={post.link} target="_blank" rel="noopener noreferrer" className="flex h-full flex-col rounded-[inherit] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500">
+                      <div className={`relative h-48 shrink-0 overflow-hidden bg-gradient-to-br ${sourceStyle.fallback} sm:h-52`}>
+                        {post.image ? (
+                          <img
+                            src={post.image}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="flex h-full items-center justify-center bg-gradient-to-br from-white/10 to-transparent">
+                            <span className="flex h-20 w-20 items-center justify-center rounded-3xl border border-white/20 bg-white/10 text-4xl font-black text-white shadow-xl backdrop-blur-sm">M</span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/10" aria-hidden="true" />
+                        <span className={`absolute left-4 top-4 inline-flex max-w-[calc(100%-2rem)] items-center truncate rounded-full px-3 py-1.5 text-xs font-extrabold shadow-sm ring-1 ring-inset ${sourceStyle.badge}`}>
+                          {language === "mr" ? sourceStyle.labelMr : sourceStyle.label}
+                        </span>
+                        {dateLabel ? <span className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-slate-950/55 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">{dateLabel}</span> : null}
+                      </div>
+                      <div className="flex flex-1 flex-col p-5 sm:p-6">
+                        <h3 className="line-clamp-3 text-lg font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-orange-700 sm:text-xl">{post.title}</h3>
+                        <div className="mt-auto flex items-center justify-between gap-3 pt-6">
+                          <span className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">{language === "mr" ? "नवीन लेख" : "LATEST ARTICLE"}</span>
+                          <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-xs font-bold text-white transition group-hover:bg-orange-600">
+                            {t.readMore} <span aria-hidden="true">↗</span>
+                          </span>
+                        </div>
+                      </div>
                     </a>
                   </article>
                 );
