@@ -50,15 +50,21 @@ export async function GET() {
     }).filter((post) => post.title && post.link);
   }));
   const posts = results.flatMap((result) => result.status === "fulfilled" ? result.value : []);
+  const limits: Record<string, number> = {
+    "Moti Health": 4,
+    "Moti TechLab": 4,
+    "Moti Finance": 3,
+    "Moti Dealz": 1,
+  };
   const grouped = FEEDS.map((feed) =>
     posts
       .filter((post) => post.source === feed.name)
       .sort((a, b) => (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0))
-      .slice(0, 3)
+      .slice(0, limits[feed.name] ?? 0)
   );
-  const mixedPosts = Array.from({ length: 3 }, (_, index) =>
+  const mixedPosts = Array.from({ length: 4 }, (_, index) =>
     grouped.flatMap((group) => group[index] ? [group[index]] : [])
-  ).flat();
+  ).flat().slice(0, 12);
   return Response.json(mixedPosts, {
     headers: { "Cache-Control": "public, s-maxage=900, stale-while-revalidate=3600" },
   });
