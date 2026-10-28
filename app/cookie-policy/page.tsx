@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
 import InfoPage from "../components/InfoPage";
 
-export const metadata: Metadata = { title: "Cookie Policy", description: "Information about cookies, advertising technologies and managing cookie preferences on The Moti Group website." };
+export const metadata: Metadata = {
+  title: "Cookie Policy",
+  description: "Information about cookies, advertising technologies and managing cookie preferences on The Moti Group website.",
+  openGraph: {
+    type: "website",
+    url: "https://themotigroup.co.in/cookie-policy",
+    siteName: "The Moti Group",
+    title: "Cookie Policy | The Moti Group",
+    description: "Information about cookies, advertising technologies and managing cookie preferences on The Moti Group website.",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Cookie Policy | The Moti Group",
+    description: "Information about cookies, advertising technologies and managing cookie preferences on The Moti Group website.",
+  },
+};
 
 export default function CookiePolicyPage() {
   return <InfoPage title="Cookie Policy & Consent" titleMr="कुकी धोरण आणि संमती" description="This page explains cookies and similar technologies that may be used on this website." descriptionMr="या वेबसाइटवर वापरल्या जाऊ शकणाऱ्या कुकीज आणि तत्सम तंत्रज्ञानाबद्दल येथे माहिती दिली आहे.">
