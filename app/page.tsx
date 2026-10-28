@@ -301,10 +301,10 @@ export default function Home() {
           </Link>
 
           <nav className="hidden items-center gap-6 text-sm font-semibold md:flex">
-            <a href="#home" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.home}</a>
-            <a href="#ventures" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.venturesNav}</a>
-            <a href="#about" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.aboutNav}</a>
-            <a href="#contact" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.contactNav}</a>
+            <a href="#home" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.home}</a>
+            <a href="#ventures" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.venturesNav}</a>
+            <a href="#about" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.aboutNav}</a>
+            <a href="#contact" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.contactNav}</a>
           </nav>
 
           <div className="flex shrink-0 items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
@@ -343,7 +343,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <section id="home" className="relative isolate overflow-hidden bg-slate-950 text-white">
+      <section id="home" className="scroll-mt-24 relative isolate overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=90"
@@ -407,7 +407,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="trending" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section id="trending" className="scroll-mt-24 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
           <div>
             <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-400">
@@ -458,7 +458,7 @@ export default function Home() {
       </section>
 
 
-      <section id="blogs" className="relative overflow-hidden border-y border-white/10 bg-gradient-to-b from-[#0c111c] via-[#0a0e17] to-[#11101a] py-20 sm:py-24">
+      <section id="blogs" className="scroll-mt-24 relative overflow-hidden border-y border-white/10 bg-gradient-to-b from-[#0c111c] via-[#0a0e17] to-[#11101a] py-20 sm:py-24">
         <div className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-orange-500/15 blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-9 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
@@ -547,7 +547,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ventures" className="border-y border-white/10 bg-[#0b101a] py-20">
+      <section id="ventures" className="scroll-mt-24 border-y border-white/10 bg-[#0b101a] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-10 max-w-2xl text-center">
             <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-400">
@@ -654,7 +654,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="relative overflow-hidden border-y border-white/10 bg-gradient-to-br from-[#11101a] via-[#0c111c] to-[#17101a] py-20">
+      <section id="about" className="scroll-mt-24 relative overflow-hidden border-y border-white/10 bg-gradient-to-br from-[#11101a] via-[#0c111c] to-[#17101a] py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-600 text-2xl font-black text-white">
             M
@@ -668,7 +668,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section id="contact" className="scroll-mt-24 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-white/10 bg-white/[0.045] p-7 shadow-[0_25px_80px_-45px_rgba(249,115,22,0.18)] sm:p-10">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
             <div>
@@ -725,7 +725,7 @@ export default function Home() {
               <div className="mt-5 flex flex-col items-start gap-3.5 text-sm text-slate-400">
                 <a href="#home" className="transition hover:translate-x-1 hover:text-white">{t.home}</a>
                 <a href="#ventures" className="transition hover:translate-x-1 hover:text-white">{t.ourVentures}</a>
-                <a href="#trending" className="transition hover:translate-x-1 hover:text-white">{t.latest}</a>
+                <a href="#blogs" className="transition hover:translate-x-1 hover:text-white">{t.latest}</a>
                 <a href="#about" className="transition hover:translate-x-1 hover:text-white">{t.aboutNav}</a>
                 <a href="#contact" className="transition hover:translate-x-1 hover:text-white">{t.contactNav}</a>
                 <a href="/about-us" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "आमच्याबद्दल" : "About Us"}</a>
