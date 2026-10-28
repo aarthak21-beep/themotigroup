@@ -447,7 +447,7 @@ export default function Home() {
                   <p className="mt-3 text-sm leading-6 text-slate-400">
                     {item.description[language]}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-orange-600">
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-orange-300">
                     {t.learnMore} <span aria-hidden="true">→</span>
                   </span>
                 </div>
@@ -490,7 +490,7 @@ export default function Home() {
               <span className="sr-only">{t.loadingBlogs}</span>
             </div>
           ) : blogPosts.length === 0 ? (
-            <div className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm sm:p-8">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.045] p-6 text-slate-100 shadow-sm sm:p-8">
               <p className="text-slate-600">{t.noBlogs}</p>
               <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold">
                 <a className="rounded-full bg-emerald-50 px-4 py-2.5 text-emerald-700 transition hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" href="https://health.themotigroup.co.in/">Moti Health ↗</a>
@@ -580,7 +580,7 @@ export default function Home() {
                 </a>
 
                 <div className="flex flex-1 flex-col p-5">
-                  <p className="text-xs font-bold uppercase tracking-wider text-orange-600">
+                  <p className="text-xs font-bold uppercase tracking-wider text-orange-300">
                     {venture.category[language]}
                   </p>
                   <h3 className="mt-2 text-xl font-black text-white">{venture.name}</h3>
@@ -591,7 +591,7 @@ export default function Home() {
                     href={venture.href}
                     target={venture.id === "technologies" ? "_blank" : undefined}
                     rel={venture.id === "technologies" ? "noreferrer" : undefined}
-                    className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-600/20"
+                    className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-4 py-3 text-sm font-bold text-white ring-1 ring-white/10 transition duration-300 hover:-translate-y-0.5 hover:bg-orange-600 hover:ring-orange-500 hover:shadow-lg hover:shadow-orange-600/20"
                   >
                     {venture.id === "technologies"
                       ? t.softwareLogin
@@ -607,7 +607,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
-          <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+          <article className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] shadow-[0_20px_60px_-35px_rgba(0,0,0,0.9)]">
             <div className="grid md:grid-cols-2">
               <div className="min-h-64">
                 <img
@@ -619,7 +619,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex flex-col justify-center p-6 sm:p-8">
-                <div className="text-xs font-black uppercase tracking-[0.15em] text-orange-600">
+                <div className="text-xs font-black uppercase tracking-[0.15em] text-orange-300">
                   {t.latestCategory}
                 </div>
                 <h2 className="mt-3 text-2xl font-black leading-tight text-white">
