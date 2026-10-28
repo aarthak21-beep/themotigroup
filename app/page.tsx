@@ -289,7 +289,6 @@ export default function Home() {
           <Link href="/" className="flex items-center gap-3">
             <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-orange-600 text-xl font-black text-white" aria-label="Moti logo">
               <span>M</span>
-              <span className="absolute right-1 top-1 h-2 w-2 rounded-full border border-white/80 bg-gradient-to-br from-white via-[#fff1c2] to-[#b98b42] shadow-[0_0_5px_rgba(255,245,200,0.9)]" aria-hidden="true" />
             </div>
             <div>
               <div className="text-lg font-black tracking-tight">
