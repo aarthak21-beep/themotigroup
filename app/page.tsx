@@ -283,8 +283,8 @@ export default function Home() {
       >
         {language === "mr" ? "मुख्य मजकुराकडे जा" : "Skip to main content"}
       </a>
-    <main id="main-content" className="min-h-screen bg-[#f7f8fa] text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <main id="main-content" className="min-h-screen bg-[#080b12] text-slate-100 selection:bg-orange-500/30">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080b12]/90 text-white shadow-[0_10px_35px_-25px_rgba(249,115,22,0.5)] backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-600 text-xl font-black text-white">
@@ -294,7 +294,7 @@ export default function Home() {
               <div className="text-lg font-black tracking-tight">
                 THE MOTI GROUP
               </div>
-              <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
                 Ideas. Services. Innovation.
               </div>
             </div>
@@ -307,15 +307,15 @@ export default function Home() {
             <a href="#contact" className="rounded-sm hover:text-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.contactNav}</a>
           </nav>
 
-          <div className="flex shrink-0 items-center gap-1 rounded-full border border-slate-200 bg-slate-50 p-1">
+          <div className="flex shrink-0 items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
             <button
               type="button"
               onClick={() => setLanguage("en")}
               aria-pressed={language === "en"}
               className={`rounded-full px-3 py-2 text-xs font-bold transition ${
                 language === "en"
-                  ? "bg-slate-900 text-white"
-                  : "text-slate-600 hover:bg-white"
+                  ? "bg-gradient-to-r from-orange-500 to-orange-700 text-white shadow-lg shadow-orange-950/40"
+                  : "text-slate-300 hover:bg-white/10 hover:text-white"
               }`}
             >
               EN
@@ -327,7 +327,7 @@ export default function Home() {
               className={`rounded-full px-3 py-2 text-xs font-bold transition ${
                 language === "mr"
                   ? "bg-orange-600 text-white"
-                  : "text-slate-600 hover:bg-white"
+                  : "text-slate-300 hover:bg-white/10 hover:text-white"
               }`}
             >
               मराठी
@@ -335,7 +335,7 @@ export default function Home() {
           </div>
         </div>
 
-        <nav className="flex gap-5 overflow-x-auto border-t border-slate-100 px-4 py-3 text-sm font-semibold md:hidden">
+        <nav className="flex gap-5 overflow-x-auto border-t border-white/10 px-4 py-3 text-sm font-semibold text-slate-300 md:hidden">
           <a href="#home" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.home}</a>
           <a href="#ventures" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.venturesNav}</a>
           <a href="#about" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.aboutNav}</a>
@@ -407,16 +407,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="trending" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section id="trending" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">
+            <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-400">
               THE MOTI GROUP
             </div>
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
               {t.trending}
             </h2>
-            <p className="mt-2 text-slate-500">{t.trendingSub}</p>
+            <p className="mt-2 text-slate-400">{t.trendingSub}</p>
           </div>
           <div className="h-1.5 w-20 rounded-full bg-orange-600" />
         </div>
@@ -425,7 +425,7 @@ export default function Home() {
           {trending.map((item) => (
             <article
               key={item.id}
-              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_20px_50px_-35px_rgba(0,0,0,0.9)] transition duration-500 hover:-translate-y-1.5 hover:border-orange-400/40 hover:bg-white/[0.07] hover:shadow-[0_25px_60px_-30px_rgba(249,115,22,0.22)]"
             >
               <a href={item.href} className="block">
                 <div className="relative h-52 overflow-hidden">
@@ -441,10 +441,10 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-xl font-extrabold leading-snug group-hover:text-orange-600">
+                  <h3 className="text-xl font-extrabold leading-snug text-white transition-colors group-hover:text-orange-300">
                     {item.title[language]}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-500">
+                  <p className="mt-3 text-sm leading-6 text-slate-400">
                     {item.description[language]}
                   </p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-orange-600">
@@ -458,8 +458,8 @@ export default function Home() {
       </section>
 
 
-      <section id="blogs" className="relative overflow-hidden border-y border-slate-200 bg-gradient-to-b from-white via-white to-orange-50/70 py-16 sm:py-20">
-        <div className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-orange-200/30 blur-3xl" aria-hidden="true" />
+      <section id="blogs" className="relative overflow-hidden border-y border-white/10 bg-gradient-to-b from-[#0c111c] via-[#0a0e17] to-[#11101a] py-20 sm:py-24">
+        <div className="pointer-events-none absolute -right-24 top-12 h-72 w-72 rounded-full bg-orange-500/15 blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-9 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
@@ -467,23 +467,23 @@ export default function Home() {
                 <span className="h-1.5 w-1.5 rounded-full bg-orange-500" aria-hidden="true" />
                 THE MOTI GROUP
               </div>
-              <h2 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">{t.blogsTitle}</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">{t.blogsSub}</p>
+              <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{t.blogsTitle}</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-400 sm:text-base">{t.blogsSub}</p>
             </div>
-            <div className="hidden rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-semibold text-slate-500 shadow-sm sm:block">
-              <span className="text-slate-900">{blogPosts.length || "—"}</span> {language === "mr" ? "ताज्या पोस्ट" : "fresh posts"}
+            <div className="hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-400 shadow-sm sm:block">
+              <span className="text-orange-300">{blogPosts.length || "—"}</span> {language === "mr" ? "ताज्या पोस्ट" : "fresh posts"}
             </div>
           </div>
           {blogsLoading ? (
             <div role="status" aria-live="polite" className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {[0, 1, 2].map((item) => (
-                <div key={item} className="overflow-hidden rounded-3xl border border-slate-200 bg-white" aria-hidden="true">
-                  <div className="h-48 animate-pulse bg-slate-100 sm:h-52" />
+                <div key={item} className="overflow-hidden rounded-3xl border border-white/10 bg-white/5" aria-hidden="true">
+                  <div className="h-48 animate-pulse bg-white/10 sm:h-52" />
                   <div className="space-y-3 p-5">
-                    <div className="h-5 w-28 animate-pulse rounded-full bg-slate-100" />
-                    <div className="h-6 w-5/6 animate-pulse rounded bg-slate-100" />
-                    <div className="h-4 w-full animate-pulse rounded bg-slate-100" />
-                    <div className="h-4 w-2/3 animate-pulse rounded bg-slate-100" />
+                    <div className="h-5 w-28 animate-pulse rounded-full bg-white/10" />
+                    <div className="h-6 w-5/6 animate-pulse rounded bg-white/10" />
+                    <div className="h-4 w-full animate-pulse rounded bg-white/10" />
+                    <div className="h-4 w-2/3 animate-pulse rounded bg-white/10" />
                   </div>
                 </div>
               ))}
@@ -507,7 +507,7 @@ export default function Home() {
                   ? new Date(post.date).toLocaleDateString(language === "mr" ? "mr-IN" : "en-IN", { day: "numeric", month: "short", year: "numeric" })
                   : null;
                 return (
-                  <article key={post.link} className="group flex min-w-0 flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_10px_35px_-22px_rgba(15,23,42,0.3)] transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-[0_24px_55px_-25px_rgba(234,88,12,0.35)]">
+                  <article key={post.link} className="group flex min-w-0 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.045] shadow-[0_18px_55px_-32px_rgba(0,0,0,0.9)] transition duration-500 hover:-translate-y-1.5 hover:border-orange-400/50 hover:bg-white/[0.075] hover:shadow-[0_24px_65px_-30px_rgba(249,115,22,0.22)]">
                     <a href={post.link} target="_blank" rel="noopener noreferrer" className="flex h-full flex-col rounded-[inherit] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-500">
                       <div className={`relative h-48 shrink-0 overflow-hidden bg-gradient-to-br ${sourceStyle.fallback} sm:h-52`}>
                         {post.image ? (
@@ -530,10 +530,10 @@ export default function Home() {
                         {dateLabel ? <span className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-slate-950/55 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">{dateLabel}</span> : null}
                       </div>
                       <div className="flex flex-1 flex-col p-5 sm:p-6">
-                        <h3 className="line-clamp-3 text-lg font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-orange-700 sm:text-xl">{post.title}</h3>
+                        <h3 className="line-clamp-3 text-lg font-extrabold leading-snug text-white transition-colors group-hover:text-orange-300 sm:text-xl">{post.title}</h3>
                         <div className="mt-auto flex items-center justify-between gap-3 pt-6">
                           <span className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">{language === "mr" ? "नवीन लेख" : "LATEST ARTICLE"}</span>
-                          <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-xs font-bold text-white transition group-hover:bg-orange-600">
+                          <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-700 px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-orange-950/30 transition group-hover:from-orange-400 group-hover:to-orange-600">
                             {t.readMore} <span aria-hidden="true">↗</span>
                           </span>
                         </div>
@@ -547,25 +547,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ventures" className="border-y border-slate-200 bg-white py-16">
+      <section id="ventures" className="border-y border-white/10 bg-[#0b101a] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-10 max-w-2xl text-center">
-            <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">
+            <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-400">
               OUR ECOSYSTEM
             </div>
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
               {t.venturesTitle}
             </h2>
-            <p className="mt-3 leading-7 text-slate-500">{t.venturesSub}</p>
+            <p className="mt-3 leading-7 text-slate-400">{t.venturesSub}</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {ventures.map((venture) => (
               <article
                 key={venture.id}
-                className="group flex flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_8px_30px_-15px_rgba(15,23,42,0.18)] transition duration-300 hover:-translate-y-2 hover:border-orange-200 hover:shadow-[0_24px_55px_-20px_rgba(234,88,12,0.25)]"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] shadow-[0_20px_50px_-30px_rgba(0,0,0,0.9)] transition duration-500 hover:-translate-y-2 hover:border-orange-400/40 hover:bg-white/[0.07] hover:shadow-[0_24px_55px_-20px_rgba(234,88,12,0.2)]"
               >
-                <a href={venture.href} className="relative block h-56 overflow-hidden bg-slate-100">
+                <a href={venture.href} className="relative block h-56 overflow-hidden bg-slate-900">
                   <img
                     src={venture.image}
                     alt={venture.name}
@@ -583,8 +583,8 @@ export default function Home() {
                   <p className="text-xs font-bold uppercase tracking-wider text-orange-600">
                     {venture.category[language]}
                   </p>
-                  <h3 className="mt-2 text-xl font-black">{venture.name}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-6 text-slate-500">
+                  <h3 className="mt-2 text-xl font-black text-white">{venture.name}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-slate-400">
                     {venture.description[language]}
                   </p>
                   <a
@@ -605,7 +605,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
           <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
             <div className="grid md:grid-cols-2">
@@ -622,10 +622,10 @@ export default function Home() {
                 <div className="text-xs font-black uppercase tracking-[0.15em] text-orange-600">
                   {t.latestCategory}
                 </div>
-                <h2 className="mt-3 text-2xl font-black leading-tight">
+                <h2 className="mt-3 text-2xl font-black leading-tight text-white">
                   {t.articleTitle}
                 </h2>
-                <p className="mt-4 text-sm leading-7 text-slate-500">
+                <p className="mt-4 text-sm leading-7 text-slate-400">
                   {t.articleText}
                 </p>
                 <a
@@ -654,37 +654,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="bg-orange-50 py-16">
+      <section id="about" className="relative overflow-hidden border-y border-white/10 bg-gradient-to-br from-[#11101a] via-[#0c111c] to-[#17101a] py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-600 text-2xl font-black text-white">
             M
           </div>
-          <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+          <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
             {t.aboutTitle}
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-600">
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-300">
             {t.aboutText}
           </p>
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200 sm:p-10">
+      <section id="contact" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.045] p-7 shadow-[0_25px_80px_-45px_rgba(249,115,22,0.18)] sm:p-10">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-600">
+              <div className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-orange-400">
                 GET IN TOUCH
               </div>
               <h2 className="text-3xl font-black">{t.contactTitle}</h2>
-              <p className="mt-3 max-w-2xl leading-7 text-slate-500">
+              <p className="mt-3 max-w-2xl leading-7 text-slate-400">
                 {t.contactText}
               </p>
-              <p className="mt-4 text-slate-600">info@themotigroup.co.in</p>
+              <p className="mt-4 text-slate-300">info@themotigroup.co.in</p>
             </div>
             <div className="flex flex-wrap gap-3 md:max-w-xs md:flex-col">
               <a
                 href="mailto:info@themotigroup.co.in"
-                className="rounded-xl bg-slate-900 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-slate-700"
+                className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-700 px-5 py-3 text-center text-sm font-bold text-white shadow-lg shadow-orange-950/30 transition duration-300 hover:-translate-y-0.5 hover:from-orange-400 hover:to-orange-600"
               >
                 {t.emailUs}
               </a>
