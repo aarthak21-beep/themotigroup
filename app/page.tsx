@@ -329,6 +329,8 @@ export default function Home() {
             <a href="#home" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.home}</a>
             <a href="#ventures" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.venturesNav}</a>
             <a href="#about" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.aboutNav}</a>
+            <a href="#founder" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{language === "mr" ? "संस्थापक" : "Founder"}</a>
+            <a href="#registrations" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{language === "mr" ? "नोंदणी" : "Registration"}</a>
             <a href="#contact" className="rounded-sm hover:text-orange-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.contactNav}</a>
           </nav>
 
@@ -364,6 +366,8 @@ export default function Home() {
           <a href="#home" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.home}</a>
           <a href="#ventures" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.venturesNav}</a>
           <a href="#about" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.aboutNav}</a>
+          <a href="#founder" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{language === "mr" ? "संस्थापक" : "Founder"}</a>
+          <a href="#registrations" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{language === "mr" ? "नोंदणी" : "Registration"}</a>
           <a href="#contact" className="whitespace-nowrap rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">{t.contactNav}</a>
         </nav>
       </header>
@@ -794,6 +798,8 @@ export default function Home() {
                 <a href="#blogs" className="transition hover:translate-x-1 hover:text-white">{t.latest}</a>
                 <a href="#about" className="transition hover:translate-x-1 hover:text-white">{t.aboutNav}</a>
                 <a href="#contact" className="transition hover:translate-x-1 hover:text-white">{t.contactNav}</a>
+                <a href="#founder" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "संस्थापक" : "Founder"}</a>
+                <a href="#registrations" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "नोंदणी" : "Registration"}</a>
                 <a href="/about-us" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "आमच्याबद्दल" : "About Us"}</a>
                 <a href="/contact-us" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "संपर्क" : "Contact Us"}</a>
                 <a href="/privacy-policy" className="transition hover:translate-x-1 hover:text-white">{language === "mr" ? "गोपनीयता धोरण" : "Privacy Policy"}</a>
