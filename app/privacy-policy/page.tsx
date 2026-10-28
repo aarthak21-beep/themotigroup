@@ -4,6 +4,19 @@ import InfoPage from "../components/InfoPage";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Learn how The Moti Group handles information, cookies, advertising and privacy.",
+  openGraph: {
+    type: "website",
+    url: "https://themotigroup.co.in/privacy-policy",
+    siteName: "The Moti Group",
+    title: "Privacy Policy | The Moti Group",
+    description: "Learn how The Moti Group handles information, cookies, advertising and privacy.",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | The Moti Group",
+    description: "Learn how The Moti Group handles information, cookies, advertising and privacy.",
+  },
 };
 
 export default function PrivacyPolicyPage() {
