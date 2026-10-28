@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
 import InfoPage from "../components/InfoPage";
 
-export const metadata: Metadata = { title: "Contact Us", description: "Contact The Moti Group for general questions, feedback and business enquiries." };
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Contact The Moti Group for general questions, feedback and business enquiries.",
+  openGraph: {
+    type: "website",
+    url: "https://themotigroup.co.in/contact-us",
+    siteName: "The Moti Group",
+    title: "Contact Us | The Moti Group",
+    description: "Contact The Moti Group for general questions, feedback and business enquiries.",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Contact Us | The Moti Group",
+    description: "Contact The Moti Group for general questions, feedback and business enquiries.",
+  },
+};
 
 export default function ContactUsPage() {
   return <InfoPage title="Contact The Moti Group" titleMr="The Moti Group शी संपर्क साधा" description="Have a question, feedback or business enquiry? Choose a contact method below." descriptionMr="प्रश्न, अभिप्राय किंवा व्यावसायिक चौकशी असल्यास खालील मार्गांनी संपर्क साधा.">
