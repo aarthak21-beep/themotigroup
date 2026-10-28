@@ -691,6 +691,49 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="founder" className="scroll-mt-24 border-y border-white/10 bg-[#0b101a] py-20 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+          <div className="flex flex-col justify-center rounded-3xl border border-orange-400/20 bg-gradient-to-br from-orange-500/10 via-white/[0.03] to-transparent p-8">
+            <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-2xl border border-orange-300/30 bg-orange-500/10 text-3xl font-black text-orange-300" aria-hidden="true">PS</div>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-orange-300">{language === "mr" ? "नेतृत्व" : "LEADERSHIP"}</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-white">{language === "mr" ? "संस्थापक" : "Founder"}</h2>
+            <p className="mt-2 text-2xl font-extrabold text-orange-200">PS Patil</p>
+            <p className="mt-1 text-sm font-semibold text-slate-400">{language === "mr" ? "संस्थापक, The Moti Group" : "Founder, The Moti Group"}</p>
+          </div>
+          <div className="flex flex-col justify-center">
+            <div className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-orange-400">{language === "mr" ? "संस्थापकांचा परिचय" : "MEET THE FOUNDER"}</div>
+            <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{language === "mr" ? "उपयुक्त सेवा आणि नवकल्पनांना एकत्र आणणारी दृष्टी" : "A Vision for Useful Services and Innovation"}</h3>
+            <p className="mt-5 leading-8 text-slate-300">{language === "mr" ? "PS Patil हे The Moti Group चे संस्थापक आहेत. आरोग्य, तंत्रज्ञान, वित्त आणि डिजिटल सेवांमधील उपक्रम एका ठिकाणी जोडून लोकांना उपयुक्त माहिती आणि सेवा सहज उपलब्ध करून देणे, हा या समूहाच्या प्रवासाचा केंद्रबिंदू आहे." : "PS Patil is the founder of The Moti Group. The group brings together initiatives across health, technology, finance and digital services, with a focus on making useful information and services easier to discover and access."}</p>
+            <p className="mt-4 leading-8 text-slate-400">{language === "mr" ? "The Moti Group चा उद्देश विविध उपक्रमांना एका समान दृष्टीने जोडणे आणि व्यक्ती व व्यवसायांसाठी उपयुक्त डिजिटल अनुभव तयार करणे हा आहे." : "The Moti Group aims to connect its ventures through a shared vision and create useful digital experiences for individuals and businesses."}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="registrations" className="scroll-mt-24 border-b border-white/10 bg-gradient-to-b from-[#0b101a] to-[#080b12] py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <div className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-orange-400">{language === "mr" ? "व्यवसायाची माहिती" : "BUSINESS INFORMATION"}</div>
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{language === "mr" ? "नोंदणी आणि अनुपालन" : "Registration & Compliance"}</h2>
+            <p className="mt-3 leading-7 text-slate-400">{language === "mr" ? "The Moti Group च्या MSME / UDYAM नोंदणीबाबत माहिती." : "Information about The Moti Group’s MSME / UDYAM registration."}</p>
+          </div>
+          <div className="mx-auto grid max-w-3xl gap-5 md:grid-cols-2">
+            <article className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-400/10 text-2xl text-emerald-300" aria-hidden="true">✓</div>
+              <h3 className="mt-5 text-xl font-extrabold text-white">{language === "mr" ? "MSME / UDYAM नोंदणी" : "MSME / UDYAM Registration"}</h3>
+              <p className="mt-3 leading-7 text-slate-300">{language === "mr" ? "The Moti Group कडे MSME / UDYAM नोंदणी आहे. नोंदणी क्रमांक येथे प्रकाशित केलेला नाही." : "The Moti Group has MSME / UDYAM registration. The registration number is not published here."}</p>
+              <p className="mt-4 text-sm font-semibold text-emerald-300">{language === "mr" ? "नोंदणीची माहिती उपलब्ध" : "Registration details available"}</p>
+            </article>
+            <article className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-400/10 text-2xl text-orange-300" aria-hidden="true">✉</div>
+              <h3 className="mt-5 text-xl font-extrabold text-white">{language === "mr" ? "नोंदणीविषयक चौकशी" : "Registration Enquiries"}</h3>
+              <p className="mt-3 leading-7 text-slate-300">{language === "mr" ? "नोंदणी किंवा व्यवसायासंबंधी चौकशीसाठी आमच्याशी ईमेलद्वारे संपर्क साधा." : "For registration or business-related enquiries, contact us by email."}</p>
+              <a href="mailto:info@themotigroup.co.in" className="mt-4 inline-flex break-all font-bold text-orange-300 transition hover:text-orange-200">info@themotigroup.co.in</a>
+            </article>
+          </div>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-6 text-slate-500">{language === "mr" ? "टीप: अधिकृत पडताळणीसाठी नोंदणी प्रमाणपत्र आणि तपशील संबंधित अधिकृत स्रोतावर तपासावेत." : "Note: For official verification, consult the registration certificate and the relevant official source."}</p>
+        </div>
+      </section>
+
       <section id="contact" className="scroll-mt-24 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-white/10 bg-white/[0.045] p-7 shadow-[0_25px_80px_-45px_rgba(249,115,22,0.18)] sm:p-10">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
