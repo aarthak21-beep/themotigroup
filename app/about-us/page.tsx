@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
 import InfoPage from "../components/InfoPage";
 
-export const metadata: Metadata = { title: "About Us", description: "Learn about The Moti Group and its information, service and technology initiatives." };
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn about The Moti Group and its information, service and technology initiatives.",
+  openGraph: {
+    type: "website",
+    url: "https://themotigroup.co.in/about-us",
+    siteName: "The Moti Group",
+    title: "About Us | The Moti Group",
+    description: "Learn about The Moti Group and its information, service and technology initiatives.",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "About Us | The Moti Group",
+    description: "Learn about The Moti Group and its information, service and technology initiatives.",
+  },
+};
 
 export default function AboutUsPage() {
   return <InfoPage title="About The Moti Group" titleMr="The Moti Group बद्दल" description="The Moti Group brings together information, services and technology initiatives intended to make everyday tasks and decisions easier." descriptionMr="दैनंदिन कामे आणि निर्णय सोपे करण्यासाठी The Moti Group माहिती, सेवा आणि तंत्रज्ञान उपक्रम एकत्र आणतो.">
