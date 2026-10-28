@@ -284,6 +284,31 @@ export default function Home() {
         {language === "mr" ? "मुख्य मजकुराकडे जा" : "Skip to main content"}
       </a>
     <main id="main-content" className="min-h-screen bg-[#080b12] text-slate-100 selection:bg-orange-500/30">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "@id": "https://themotigroup.co.in/#ventures",
+            name: "The Moti Group Ventures",
+            description:
+              "Explore The Moti Group ventures in diagnostics, health information, technology education, finance awareness, shopping deals and business software.",
+            itemListOrder: "https://schema.org/ItemListOrderAscending",
+            numberOfItems: ventures.length,
+            itemListElement: ventures.map((venture, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Organization",
+                name: venture.name,
+                url: venture.href,
+                description: venture.description.en,
+              },
+            })),
+          }),
+        }}
+      />
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080b12]/90 text-white shadow-[0_10px_35px_-25px_rgba(249,115,22,0.5)] backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
