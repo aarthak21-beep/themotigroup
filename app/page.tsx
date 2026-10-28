@@ -97,8 +97,7 @@ const ventures = [
     href: "https://dealz.themotigroup.co.in/",
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85",
-    cta: { en: "Explore Dealz", mr: "डील्स पाहा" },
-  },
+    cta: { en: "Explore Dealz", mr: "डील्स पाहा" },  },
   {
     id: "technologies",
     name: "Moti Technologies",
@@ -197,8 +196,7 @@ const translations = {
     contactTitle: "Let's Connect",
     contactText:
       "Have a question, business enquiry or idea to share? We would love to hear from you.",
-    emailUs: "Email Us",
-    whatsapp: "Chat on WhatsApp",
+    emailUs: "Email Us",    whatsapp: "Chat on WhatsApp",
     visit: "Visit Website",
     softwareLogin: "Software Login",
     footerText: "Bringing information, services and technology closer to you.",
@@ -297,8 +295,7 @@ export default function Home() {
             itemListOrder: "https://schema.org/ItemListOrderAscending",
             numberOfItems: ventures.length,
             itemListElement: ventures.map((venture, index) => ({
-              "@type": "ListItem",
-              position: index + 1,
+              "@type": "ListItem",              position: index + 1,
               item: {
                 "@type": "Organization",
                 name: venture.name,
@@ -397,8 +394,7 @@ export default function Home() {
               <a
                 href="#ventures"
                 className="rounded-xl bg-gradient-to-r from-orange-500 to-orange-700 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/40 transition duration-300 hover:-translate-y-0.5 hover:from-orange-400 hover:to-orange-600 hover:shadow-orange-500/20"
-              >
-                {t.explore} <span aria-hidden="true">→</span>
+              >                {t.explore} <span aria-hidden="true">→</span>
               </a>
               <a
                 href="#trending"
@@ -497,8 +493,7 @@ export default function Home() {
               <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{t.blogsTitle}</h2>
               <p className="mt-3 text-sm leading-6 text-slate-400 sm:text-base">{t.blogsSub}</p>
             </div>
-            <div className="hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-400 shadow-sm sm:block">
-              <span className="text-orange-300">{blogPosts.length || "—"}</span> {language === "mr" ? "ताज्या पोस्ट" : "fresh posts"}
+            <div className="hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-400 shadow-sm sm:block">              <span className="text-orange-300">{blogPosts.length || "—"}</span> {language === "mr" ? "ताज्या पोस्ट" : "fresh posts"}
             </div>
           </div>
           {blogsLoading ? (
@@ -597,8 +592,7 @@ export default function Home() {
                     src={venture.image}
                     alt={venture.name}
                     loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    decoding="async"                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/5 to-transparent transition duration-300 group-hover:from-slate-950/65" />
                   <span className="absolute bottom-4 left-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-slate-900">
@@ -697,8 +691,7 @@ export default function Home() {
 
       <section id="founder" className="scroll-mt-24 border-y border-amber-300/15 bg-[radial-gradient(ellipse_at_top,rgba(180,125,40,0.12),transparent_55%),#080a0f] py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-amber-300/25 bg-gradient-to-br from-amber-200/[0.09] via-white/[0.025] to-transparent p-8 text-center shadow-[0_25px_90px_-45px_rgba(212,160,70,0.28)] sm:p-10">
-            <div className="pointer-events-none absolute inset-3 rounded-2xl border border-amber-200/10" aria-hidden="true" />
+          <div className="relative overflow-hidden rounded-3xl border border-amber-300/25 bg-gradient-to-br from-amber-200/[0.09] via-white/[0.025] to-transparent p-8 text-center shadow-[0_25px_90px_-45px_rgba(212,160,70,0.28)] sm:p-10">            <div className="pointer-events-none absolute inset-3 rounded-2xl border border-amber-200/10" aria-hidden="true" />
             <div className="relative mx-auto mb-6 flex h-28 w-28 items-center justify-center rounded-full border border-amber-300/50 bg-gradient-to-br from-amber-200/20 via-amber-500/10 to-transparent shadow-[0_0_45px_rgba(212,160,70,0.12)]">
               <span className="text-3xl font-serif font-semibold tracking-[0.08em] text-amber-200" aria-hidden="true">PSP</span>
               <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border border-amber-200 bg-[#15110a]" aria-hidden="true" />
@@ -710,9 +703,9 @@ export default function Home() {
           </div>
           <div className="flex flex-col justify-center">
             <div className="mb-3 text-xs font-black uppercase tracking-[0.24em] text-amber-300">{language === "mr" ? "एक दृष्टी • अनेक उपक्रम" : "ONE VISION. MANY VENTURES."}</div>
-            <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{language === "mr" ? "उपयुक्त सेवा आणि नवकल्पनांना एकत्र आणणारी दृष्टी" : "A Vision for Useful Services and Innovation"}</h3>
-            <p className="mt-5 leading-8 text-slate-300">{language === "mr" ? "आरोग्य, तंत्रज्ञान, वित्त आणि डिजिटल सेवांमधील उपक्रम एका ठिकाणी जोडून लोकांना उपयुक्त माहिती आणि सेवा सहज उपलब्ध करून देणे, हा The Moti Group च्या प्रवासाचा केंद्रबिंदू आहे." : "The Moti Group brings together initiatives across health, technology, finance and digital services, with a focus on making useful information and services easier to discover and access."}</p>
-            <p className="mt-4 leading-8 text-slate-400">{language === "mr" ? "विविध उपक्रमांना एका समान दृष्टीने जोडणे आणि व्यक्ती व व्यवसायांसाठी उपयुक्त डिजिटल अनुभव तयार करणे, हे आमचे ध्येय आहे." : "Our aim is to connect diverse ventures through a shared vision and create useful digital experiences for individuals and businesses."}</p>
+            <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{language === "mr" ? "तंत्रज्ञान, आरोग्य, वित्त, डील्स आणि डिजिटल ज्ञानाची सामायिक दृष्टी" : "A Shared Vision for Technology, Health, Finance, Deals and Digital Knowledge"}</h3>
+            <p className="mt-5 leading-8 text-slate-300">{language === "mr" ? "The Moti Group तंत्रज्ञान, आरोग्य, वित्त, शॉपिंग डील्स आणि डिजिटल माहिती या क्षेत्रांतील विविध उपक्रम आणि माहितीपर प्लॅटफॉर्म एकत्र आणतो." : "The Moti Group brings together a diverse range of ventures and digital platforms across technology, health, finance, shopping deals and information."}</p>
+            <p className="mt-4 leading-8 text-slate-400">{language === "mr" ? "सॉफ्टवेअर डेव्हलपमेंट आणि डायग्नोस्टिक सेवांपासून ते आरोग्य, वित्त, तंत्रज्ञान आणि शॉपिंग ऑफर्सवरील माहितीपर ब्लॉगपर्यंत, उपयुक्त उपाय आणि संबंधित माहिती लोकांपर्यंत सहज पोहोचवणे हे आमचे ध्येय आहे." : "From software development and diagnostic services to informative blogs, technology insights and curated shopping offers, our aim is to make useful solutions and relevant information easier to discover and access."}</p>
           </div>
         </div>
       </section>
@@ -797,8 +790,7 @@ export default function Home() {
             <div>
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-orange-300">{t.quickLinks}</h3>
               <div className="mt-5 flex flex-col items-start gap-3.5 text-sm text-slate-400">
-                <a href="#home" className="transition hover:translate-x-1 hover:text-white">{t.home}</a>
-                <a href="#ventures" className="transition hover:translate-x-1 hover:text-white">{t.ourVentures}</a>
+                <a href="#home" className="transition hover:translate-x-1 hover:text-white">{t.home}</a>                <a href="#ventures" className="transition hover:translate-x-1 hover:text-white">{t.ourVentures}</a>
                 <a href="#blogs" className="transition hover:translate-x-1 hover:text-white">{t.latest}</a>
                 <a href="#about" className="transition hover:translate-x-1 hover:text-white">{t.aboutNav}</a>
                 <a href="#contact" className="transition hover:translate-x-1 hover:text-white">{t.contactNav}</a>
