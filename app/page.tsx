@@ -695,16 +695,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="founder" className="scroll-mt-24 border-y border-white/10 bg-[#0b101a] py-20 sm:py-24">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
-          <div className="flex flex-col justify-center rounded-3xl border border-orange-400/20 bg-gradient-to-br from-orange-500/10 via-white/[0.03] to-transparent p-8">
-            <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-2xl border border-orange-300/30 bg-orange-500/10 text-3xl font-black text-orange-300" aria-hidden="true">M</div>
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-orange-300">{language === "mr" ? "दृष्टी आणि ध्येय" : "VISION & PURPOSE"}</p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-white">{language === "mr" ? "संस्थापकांची दृष्टी" : "Founder’s Vision"}</h2>
-            <p className="mt-3 text-sm font-semibold leading-6 text-slate-400">{language === "mr" ? "The Moti Group" : "The Moti Group"}</p>
+      <section id="founder" className="scroll-mt-24 border-y border-amber-300/15 bg-[radial-gradient(ellipse_at_top,rgba(180,125,40,0.12),transparent_55%),#080a0f] py-20 sm:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl border border-amber-300/25 bg-gradient-to-br from-amber-200/[0.09] via-white/[0.025] to-transparent p-8 text-center shadow-[0_25px_90px_-45px_rgba(212,160,70,0.28)] sm:p-10">
+            <div className="pointer-events-none absolute inset-3 rounded-2xl border border-amber-200/10" aria-hidden="true" />
+            <div className="relative mx-auto mb-6 flex h-28 w-28 items-center justify-center rounded-full border border-amber-300/50 bg-gradient-to-br from-amber-200/20 via-amber-500/10 to-transparent shadow-[0_0_45px_rgba(212,160,70,0.12)]">
+              <span className="text-6xl font-serif font-semibold tracking-tight text-amber-200" aria-hidden="true">M</span>
+              <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border border-amber-200 bg-[#15110a]" aria-hidden="true" />
+            </div>
+            <p className="relative text-[10px] font-bold uppercase tracking-[0.32em] text-amber-200/80">{language === "mr" ? "दृष्टी • रणनीती • वारसा" : "VISION • STRATEGY • LEGACY"}</p>
+            <h2 className="relative mt-4 text-2xl font-semibold uppercase tracking-[0.12em] text-amber-100 sm:text-3xl">The Moti Architect</h2>
+            <div className="relative mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-amber-300/80 to-transparent" />
+            <p className="relative mt-4 text-sm font-medium tracking-wide text-slate-300">{language === "mr" ? "The Moti Group मागील दूरदृष्टी" : "The Mind That Builds MOTI"}</p>
           </div>
           <div className="flex flex-col justify-center">
-            <div className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-orange-400">{language === "mr" ? "एक ध्येय, अनेक उपक्रम" : "ONE VISION. MANY VENTURES."}</div>
+            <div className="mb-3 text-xs font-black uppercase tracking-[0.24em] text-amber-300">{language === "mr" ? "एक दृष्टी • अनेक उपक्रम" : "ONE VISION. MANY VENTURES."}</div>
             <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl">{language === "mr" ? "उपयुक्त सेवा आणि नवकल्पनांना एकत्र आणणारी दृष्टी" : "A Vision for Useful Services and Innovation"}</h3>
             <p className="mt-5 leading-8 text-slate-300">{language === "mr" ? "आरोग्य, तंत्रज्ञान, वित्त आणि डिजिटल सेवांमधील उपक्रम एका ठिकाणी जोडून लोकांना उपयुक्त माहिती आणि सेवा सहज उपलब्ध करून देणे, हा The Moti Group च्या प्रवासाचा केंद्रबिंदू आहे." : "The Moti Group brings together initiatives across health, technology, finance and digital services, with a focus on making useful information and services easier to discover and access."}</p>
             <p className="mt-4 leading-8 text-slate-400">{language === "mr" ? "विविध उपक्रमांना एका समान दृष्टीने जोडणे आणि व्यक्ती व व्यवसायांसाठी उपयुक्त डिजिटल अनुभव तयार करणे, हे आमचे ध्येय आहे." : "Our aim is to connect diverse ventures through a shared vision and create useful digital experiences for individuals and businesses."}</p>
