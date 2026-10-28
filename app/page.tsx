@@ -344,15 +344,13 @@ export default function Home() {
       </header>
 
       <section id="home" className="scroll-mt-24 relative isolate overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=90"
-            alt=""
-            className="h-full w-full object-cover opacity-30 scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-900/35" />
+        <div className="absolute inset-0 overflow-hidden bg-[#090510]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_45%,rgba(124,45,18,0.34),transparent_38%),radial-gradient(ellipse_at_20%_10%,rgba(88,28,135,0.28),transparent_42%),linear-gradient(115deg,#080610_0%,#160923_52%,#090510_100%)]" />
           <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-orange-500/15 blur-3xl" />
           <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-amber-400/10 blur-3xl" />
+          <div aria-hidden="true" className="pointer-events-none absolute -right-8 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[34rem] font-black leading-none text-transparent opacity-[0.14] [background:linear-gradient(145deg,#fff0a6_5%,#fbbf24_35%,#b45309_70%,#fff1b8_95%)] [background-clip:text] lg:block">M</div>
+          <div aria-hidden="true" className="absolute right-[14%] top-[22%] h-72 w-72 rounded-full border border-amber-300/10 shadow-[0_0_100px_rgba(245,158,11,0.08)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#090510]/25 via-[#090510]/20 to-[#090510]/45" />
         </div>
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
