@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
 import InfoPage from "../components/InfoPage";
 
-export const metadata: Metadata = { title: "Terms & Conditions", description: "Terms for using The Moti Group website and its informational content." };
+export const metadata: Metadata = {
+  title: "Terms & Conditions",
+  description: "Terms for using The Moti Group website and its informational content.",
+  openGraph: {
+    type: "website",
+    url: "https://themotigroup.co.in/terms-and-conditions",
+    siteName: "The Moti Group",
+    title: "Terms & Conditions | The Moti Group",
+    description: "Terms for using The Moti Group website and its informational content.",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Terms & Conditions | The Moti Group",
+    description: "Terms for using The Moti Group website and its informational content.",
+  },
+};
 
 export default function TermsPage() {
   return <InfoPage title="Terms & Conditions" titleMr="वापराच्या अटी व शर्ती" description="These terms apply to your use of the main The Moti Group website." descriptionMr="The Moti Group च्या मुख्य वेबसाइटच्या वापरासाठी या अटी लागू आहेत.">
