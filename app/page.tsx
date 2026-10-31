@@ -107,7 +107,7 @@ const ventures = [
       en: "Technology solutions for businesses, including our Newspaper Management Software.",
       mr: "व्यवसायांसाठी तंत्रज्ञान उपाय, ज्यामध्ये आमच्या Newspaper Management Software चा समावेश आहे.",
     },
-    href: "https://billing.themotigroup.co.in/",
+    href: "https://moti-technologies.onrender.com/",
     image:
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85",
     cta: { en: "Software Login", mr: "सॉफ्टवेअर लॉगिन" },
