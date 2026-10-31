@@ -430,6 +430,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section aria-label={language === "mr" ? "आमचे उपक्रम" : "Our ventures"} className="overflow-hidden border-y border-orange-400/15 bg-[#0b0e16] py-5">
+        <div className="mx-auto mb-3 flex max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
+          <span className="h-px w-7 bg-orange-500" />
+          <p className="shrink-0 text-[10px] font-black uppercase tracking-[0.24em] text-orange-300">
+            {language === "mr" ? "आमचे उपक्रम" : "OUR VENTURES"}
+          </p>
+          <span className="h-px flex-1 bg-white/10" />
+        </div>
+        <div className="moti-marquee group" role="region" aria-label={language === "mr" ? "उपक्रमांची सरकणारी यादी" : "Scrolling list of ventures"}>
+          <div className="moti-marquee-track group-hover:[animation-play-state:paused]">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="moti-marquee-set" aria-hidden={copy === 1}>
+                {ventures.map((venture) => (
+                  <a key={venture.id} href={venture.href} target="_blank" rel="noreferrer" tabIndex={copy === 1 ? -1 : 0}
+                    className="moti-marquee-item">
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,.65)]" />
+                    {venture.name}
+                    <span className="ml-1 text-orange-400/70">↗</span>
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="trending" className="scroll-mt-24 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
           <div>
