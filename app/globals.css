@@ -81,3 +81,55 @@ body {
     animation: none !important;
   }
 }
+
+
+/* NioDelta-inspired premium layout, retaining The Moti Group orange identity */
+:root {
+  --moti-orange: #f97316;
+  --moti-amber: #f59e0b;
+  --moti-ink: #080b12;
+}
+::selection { background: rgba(249,115,22,.35); color: #fff; }
+body {
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(249,115,22,.055), transparent 30%),
+    #080b12;
+}
+header { border-color: rgba(255,255,255,.09) !important; }
+#main-content > section:not(#home) {
+  position: relative;
+}
+#main-content > section:not(#home)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 90% 0%, rgba(249,115,22,.045), transparent 34%);
+}
+#main-content article,
+#main-content section article {
+  transform: translateZ(0);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background-color .35s ease;
+}
+#main-content article:hover {
+  border-color: rgba(251,146,60,.38);
+  box-shadow: 0 24px 70px -42px rgba(249,115,22,.32);
+}
+#main-content img {
+  transition: transform .65s cubic-bezier(.2,.7,.2,1), filter .45s ease;
+}
+#main-content a:focus-visible,
+#main-content button:focus-visible {
+  outline: 2px solid #fb923c;
+  outline-offset: 4px;
+}
+#main-content h1,
+#main-content h2 {
+  text-wrap: balance;
+}
+#main-content section[id] {
+  scroll-margin-top: 6rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  #main-content article, #main-content img { transition: none !important; }
+}
