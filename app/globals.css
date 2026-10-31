@@ -133,3 +133,46 @@ header { border-color: rgba(255,255,255,.09) !important; }
 @media (prefers-reduced-motion: reduce) {
   #main-content article, #main-content img { transition: none !important; }
 }
+
+
+/* Seamless venture-name marquee */
+.moti-marquee { overflow: hidden; width: 100%; }
+.moti-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: moti-marquee-scroll 34s linear infinite;
+}
+.moti-marquee-set {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.moti-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  white-space: nowrap;
+  border: 1px solid rgba(249,115,22,.2);
+  border-radius: 9999px;
+  background: rgba(255,255,255,.035);
+  padding: .7rem 1.1rem;
+  color: #f8fafc;
+  font-size: .9rem;
+  font-weight: 700;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.moti-marquee-item:hover {
+  border-color: rgba(249,115,22,.65);
+  background: rgba(249,115,22,.1);
+  color: #fdba74;
+}
+@keyframes moti-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .moti-marquee-track { animation: none !important; }
+  .moti-marquee { overflow-x: auto; }
+}
