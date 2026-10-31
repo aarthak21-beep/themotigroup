@@ -844,7 +844,7 @@ export default function Home() {
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-orange-300">{t.connect}</h3>
               <p className="mt-5 text-sm leading-6 text-slate-400">Have a question or want to work with us? We’d love to hear from you.</p>
               <a href="mailto:info@themotigroup.co.in" className="mt-4 block break-all text-sm font-semibold text-white transition hover:text-orange-300">info@themotigroup.co.in</a>
-              <a href="https://billing.themotigroup.co.in/" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white/5 px-4 py-3 text-sm font-bold text-slate-200 ring-1 ring-white/10 transition hover:bg-white/10 hover:ring-orange-400/40">
+              <a href="https://moti-technologies.onrender.com/" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-white/5 px-4 py-3 text-sm font-bold text-slate-200 ring-1 ring-white/10 transition hover:bg-white/10 hover:ring-orange-400/40">
                 Moti Technologies — {t.softwareLogin} <span aria-hidden="true">↗</span>
               </a>
             </div>
