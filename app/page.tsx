@@ -371,7 +371,7 @@ export default function Home() {
 
       <section id="home" className="scroll-mt-24 relative isolate overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 overflow-hidden bg-[#090510]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_45%,rgba(124,45,18,0.34),transparent_38%),radial-gradient(ellipse_at_20%_10%,rgba(88,28,135,0.28),transparent_42%),linear-gradient(115deg,#080610_0%,#160923_52%,#090510_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_78%_42%,rgba(249,115,22,0.28),transparent_38%),radial-gradient(ellipse_at_18%_12%,rgba(234,88,12,0.18),transparent_42%),linear-gradient(115deg,#080b12_0%,#17100d_52%,#080b12_100%)]" />
           <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-orange-500/15 blur-3xl" />
           <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-amber-400/10 blur-3xl" />
           <div aria-hidden="true" className="pointer-events-none absolute -right-8 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[34rem] font-black leading-none text-transparent opacity-[0.14] [background:linear-gradient(145deg,#fff0a6_5%,#fbbf24_35%,#b45309_70%,#fff1b8_95%)] [background-clip:text] lg:block">M</div>
